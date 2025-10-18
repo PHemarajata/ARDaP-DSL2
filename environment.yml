@@ -26,7 +26,7 @@ dependencies:
   
   # Variant calling and annotation
   - bioconda::snpeff>=5.1
-  - bioconda::pindel>=0.2.5
+  - bioconda::pindel>=0.2.5b9
   - bioconda::delly>=1.1
   
   # Read processing

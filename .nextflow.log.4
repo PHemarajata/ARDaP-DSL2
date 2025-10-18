@@ -1,0 +1,28 @@
+Oct-18 18:05:37.160 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf -profile workstation --fastq '/home/phemarajata/Downloads/Burk_Genome_for_BI_Feb_2025/Fastq_250127/*_{1,2}.fastq.gz' --species Burkholderia_pseudomallei
+Oct-18 18:05:37.196 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.04.8
+Oct-18 18:05:37.230 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/phemarajata/.nextflow/plugins; core-plugins: nf-amazon@2.15.0-patch2,nf-azure@1.16.0-patch1,nf-cloudcache@0.4.3,nf-codecommit@0.2.3,nf-console@1.2.1,nf-google@1.21.1,nf-k8s@1.0.1,nf-tower@1.11.4-patch2,nf-wave@1.12.1
+Oct-18 18:05:37.244 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Oct-18 18:05:37.245 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Oct-18 18:05:37.247 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Oct-18 18:05:37.255 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Oct-18 18:05:37.272 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/phemarajata/ARDaP-DSL2/nextflow.config
+Oct-18 18:05:37.276 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/phemarajata/ARDaP-DSL2/nextflow.config
+Oct-18 18:05:37.297 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/phemarajata/.nextflow/secrets/store.json
+Oct-18 18:05:37.300 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@1d01dfa5] - activable => nextflow.secret.LocalSecretsProvider@1d01dfa5
+Oct-18 18:05:37.312 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `workstation`
+Oct-18 18:05:37.739 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: []
+Oct-18 18:05:37.744 [main] DEBUG nextflow.cli.Launcher - Operation aborted
+nextflow.exception.AbortOperationException: Unknown configuration profile: 'workstation'
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.config.ConfigBuilder.checkValidProfile(ConfigBuilder.groovy:511)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.config.ConfigBuilder.buildConfig0(ConfigBuilder.groovy:386)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.config.ConfigBuilder.buildGivenFiles(ConfigBuilder.groovy:318)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.config.ConfigBuilder.buildConfigObject(ConfigBuilder.groovy:816)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.config.ConfigBuilder.build(ConfigBuilder.groovy:829)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:333)
+	at nextflow.cli.Launcher.run(Launcher.groovy:513)
+	at nextflow.cli.Launcher.main(Launcher.groovy:673)

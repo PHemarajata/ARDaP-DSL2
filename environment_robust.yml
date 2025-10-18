@@ -20,7 +20,7 @@ dependencies:
   
   # Variant calling and annotation
   - snpeff>=4.3
-  - pindel>=0.2.5
+  - pindel>=0.2.5b9
   - delly>=0.9
   
   # Read processing

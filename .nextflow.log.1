@@ -1,0 +1,647 @@
+Oct-18 18:12:28.525 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf -profile workstation --fastq '/home/phemarajata/Downloads/Burk_Genome_for_BI_Feb_2025/Fastq_250127/*_R{1,2}*.fastq.gz' --species Burkholderia_pseudomallei --outdir /home/phemarajata/Downloads/Burk_Genome_for_BI_Feb_2025/Fastq_250127/results
+Oct-18 18:12:28.574 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.04.8
+Oct-18 18:12:28.595 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/phemarajata/.nextflow/plugins; core-plugins: nf-amazon@2.15.0-patch2,nf-azure@1.16.0-patch1,nf-cloudcache@0.4.3,nf-codecommit@0.2.3,nf-console@1.2.1,nf-google@1.21.1,nf-k8s@1.0.1,nf-tower@1.11.4-patch2,nf-wave@1.12.1
+Oct-18 18:12:28.615 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Oct-18 18:12:28.616 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Oct-18 18:12:28.618 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Oct-18 18:12:28.626 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Oct-18 18:12:28.641 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/phemarajata/ARDaP-DSL2/nextflow.config
+Oct-18 18:12:28.643 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/phemarajata/ARDaP-DSL2/nextflow.config
+Oct-18 18:12:28.667 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/phemarajata/.nextflow/secrets/store.json
+Oct-18 18:12:28.670 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@759d81f3] - activable => nextflow.secret.LocalSecretsProvider@759d81f3
+Oct-18 18:12:28.679 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `workstation`
+Oct-18 18:12:29.381 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [standard, dgx, test, conda, workstation, singularity, docker]
+Oct-18 18:12:29.415 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Oct-18 18:12:29.428 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [maniac_bell] DSL2 - revision: e871ba1a61
+Oct-18 18:12:29.429 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Oct-18 18:12:29.429 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Oct-18 18:12:29.469 [main] DEBUG nextflow.Session - Session UUID: f277df0e-7133-4999-aac1-2308e19176e6
+Oct-18 18:12:29.469 [main] DEBUG nextflow.Session - Run name: maniac_bell
+Oct-18 18:12:29.469 [main] DEBUG nextflow.Session - Executor pool size: 22
+Oct-18 18:12:29.478 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Oct-18 18:12:29.487 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=66; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Oct-18 18:12:29.501 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 25.04.8 build 5956
+  Created: 06-10-2025 21:19 UTC (07-10-2025 04:19 ICST)
+  System: Linux 6.14.0-33-generic
+  Runtime: Groovy 4.0.26 on OpenJDK 64-Bit Server VM 17.0.15-internal+0-adhoc..src
+  Encoding: UTF-8 (UTF-8)
+  Process: 103383@phemarajata-Stealth-16-MercedesAMG-A1VGG [127.0.1.1]
+  CPUs: 22 - Mem: 62.3 GB (34.7 GB) - Swap: 8 GB (8 GB)
+Oct-18 18:12:29.524 [main] DEBUG nextflow.Session - Work-dir: /home/phemarajata/ARDaP-DSL2/work [ext2/ext3]
+Oct-18 18:12:29.566 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Oct-18 18:12:29.579 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Oct-18 18:12:29.603 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Oct-18 18:12:29.622 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Oct-18 18:12:29.629 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 23; maxThreads: 1000
+Oct-18 18:12:29.666 [main] DEBUG nextflow.Session - Session start
+Oct-18 18:12:29.668 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow started -- trace file: /home/phemarajata/Downloads/Burk_Genome_for_BI_Feb_2025/Fastq_250127/results/pipeline_info/execution_trace.txt
+Oct-18 18:12:29.945 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Oct-18 18:12:29.954 [main] INFO  nextflow.Nextflow - 
+===============================================================================
+                           NF-ARDaP DSL2
+                             v2.4.0
+================================================================================
+
+Optional Parameters:
+
+    --fastq      Input PE read file wildcard (default: *_{1,2}.fastq.gz)
+
+                 Currently this is set to /home/phemarajata/Downloads/Burk_Genome_for_BI_Feb_2025/Fastq_250127/*_R{1,2}*.fastq.gz
+
+    --species    Species specific database for resistance determination
+                 (default: Burkholderia_pseudomallei)
+
+                 Currently you are using Burkholderia_pseudomallei
+
+    --assemblies Optionally include a directory of assembled genomes in the
+                 analysis. Set this parameter to 'true' if you wish to included
+                 assembled genomes and place all assembled genomes in a
+                 subdirectory called 'assemblies'. (default: false)
+
+                 Currently assemblies is set to false
+
+    --notrim     Although not generally recommended to switch off, set to true
+                 if you want to skip the trimmomatic step (default: false).
+                 Currently notrim is set to true
+
+    --mixtures   Optionally perform within species mixtures analysis.
+                 Set this parameter to 'true' if you are dealing with
+                 multiple strains. (default: false)
+
+                 Currently mixtures is set to false
+
+    --size       ARDaP can optionally down-sample your read data to
+                 run through the pipeline quicker. Please set to 0 to skip this step
+                 (default: 1000000)
+
+                 Currently you are using 1000000
+
+                 Currently executor is set to local
+
+    --fast       **Experimental**. Future implementation to only look at regions that
+                 may cause AMR rather than the whole genome. I expect this may impact on the
+                 performance of predicting structural variants.
+
+                 Currently fast is set to true
+
+    --gwas       **Experimental**. If you have a database of GWAS co-ordinates
+                 ARDaP can interrogate SNPs and indels across the entire genome
+                 to identify novel mutations likely contributing to an antibiotic
+                 resistance phenotype. For more information about this feature,
+                 please contact the developers.
+
+                 Currently gwas is set to false
+
+If you want to make changes to the default `nextflow.config` file
+clone the workflow into a local directory and change parameters
+in `nextflow.config`:
+
+    nextflow clone dsarov/ardap outdir/
+
+Update to the local cache of this workflow:
+
+    nextflow pull dsarov/ardap
+
+==================================================================
+==================================================================
+
+Oct-18 18:12:30.584 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:index` matches labels `index` for process with name INDEX_REFERENCE
+Oct-18 18:12:30.592 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 18:12:30.593 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 18:12:30.598 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Oct-18 18:12:30.603 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=20; memory=56 GB; capacity=4; pollInterval=100ms; dumpInterval=5m
+Oct-18 18:12:30.605 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Oct-18 18:12:30.623 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'INDEX_REFERENCE': maxForks=0; fair=false; array=0
+Oct-18 18:12:30.665 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:trimmomatic` matches labels `trimmomatic` for process with name TRIMMOMATIC
+Oct-18 18:12:30.669 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 18:12:30.669 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 18:12:30.671 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'TRIMMOMATIC': maxForks=0; fair=false; array=0
+Oct-18 18:12:30.685 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:ardap_default` matches labels `ardap_default` for process with name DOWNSAMPLE
+Oct-18 18:12:30.689 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 18:12:30.690 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 18:12:30.692 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'DOWNSAMPLE': maxForks=0; fair=false; array=0
+Oct-18 18:12:30.707 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:alignment` matches labels `alignment` for process with name REFERENCE_ALIGNMENT
+Oct-18 18:12:30.711 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 18:12:30.711 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 18:12:30.712 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'REFERENCE_ALIGNMENT': maxForks=0; fair=false; array=0
+Oct-18 18:12:30.721 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:markduplicates` matches labels `markduplicates` for process with name MARK_DUPLICATES
+Oct-18 18:12:30.722 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 18:12:30.723 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 18:12:30.723 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'MARK_DUPLICATES': maxForks=0; fair=false; array=0
+Oct-18 18:12:30.730 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:gatk_haplo` matches labels `gatk_haplo` for process with name GATK_HAPLOTYPE_CALLER
+Oct-18 18:12:30.733 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 18:12:30.733 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 18:12:30.733 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'GATK_HAPLOTYPE_CALLER': maxForks=0; fair=false; array=0
+Oct-18 18:12:30.746 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:gatk` matches labels `gatk` for process with name GATK_GENOTYPE_GVCFS
+Oct-18 18:12:30.747 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 18:12:30.747 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 18:12:30.748 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'GATK_GENOTYPE_GVCFS': maxForks=0; fair=false; array=0
+Oct-18 18:12:30.753 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:gatk` matches labels `gatk` for process with name VARIANT_FILTER
+Oct-18 18:12:30.756 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 18:12:30.756 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 18:12:30.757 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'VARIANT_FILTER': maxForks=0; fair=false; array=0
+Oct-18 18:12:30.764 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:ardap_default` matches labels `ardap_default` for process with name DELLY
+Oct-18 18:12:30.766 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 18:12:30.766 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 18:12:30.767 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'DELLY': maxForks=0; fair=false; array=0
+Oct-18 18:12:30.773 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:pindel` matches labels `pindel` for process with name PINDEL
+Oct-18 18:12:30.775 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 18:12:30.775 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 18:12:30.775 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'PINDEL': maxForks=0; fair=false; array=0
+Oct-18 18:12:30.780 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:snpeff` matches labels `snpeff` for process with name SNPEFF_ANNOTATION
+Oct-18 18:12:30.782 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 18:12:30.782 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 18:12:30.782 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SNPEFF_ANNOTATION': maxForks=0; fair=false; array=0
+Oct-18 18:12:30.788 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:genomic_queries` matches labels `genomic_queries` for process with name SQL_QUERIES_SNP_INDEL
+Oct-18 18:12:30.790 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 18:12:30.790 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 18:12:30.791 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SQL_QUERIES_SNP_INDEL': maxForks=0; fair=false; array=0
+Oct-18 18:12:30.797 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:genomic_queries` matches labels `genomic_queries` for process with name SQL_QUERIES_DEL_DUP
+Oct-18 18:12:30.799 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 18:12:30.799 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 18:12:30.800 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SQL_QUERIES_DEL_DUP': maxForks=0; fair=false; array=0
+Oct-18 18:12:30.813 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:report` matches labels `report` for process with name ABRESISTANCE_REPORT
+Oct-18 18:12:30.817 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 18:12:30.817 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 18:12:30.818 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ABRESISTANCE_REPORT': maxForks=0; fair=false; array=0
+Oct-18 18:12:30.833 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:report` matches labels `report` for process with name HTML_REPORT
+Oct-18 18:12:30.835 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 18:12:30.836 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 18:12:30.837 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'HTML_REPORT': maxForks=0; fair=false; array=0
+Oct-18 18:12:30.849 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:master_vcf` matches labels `master_vcf` for process with name MERGE_VCF
+Oct-18 18:12:30.851 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 18:12:30.852 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 18:12:30.853 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'MERGE_VCF': maxForks=0; fair=false; array=0
+Oct-18 18:12:30.859 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:snp_matrix` matches labels `snp_matrix` for process with name SNP_MATRIX
+Oct-18 18:12:30.860 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 18:12:30.860 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 18:12:30.861 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SNP_MATRIX': maxForks=0; fair=false; array=0
+Oct-18 18:12:30.864 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: VARIANT_FILTER, SQL_QUERIES_DEL_DUP, HTML_REPORT, PHYLOGENY, SNPEFF_ANNOTATION, ABRESISTANCE_REPORT, DELLY, READ_SYNTHESIS, DOWNSAMPLE, TRIMMOMATIC, REFERENCE_ALIGNMENT, SNP_MATRIX, MERGE_VCF, PINDEL, INDEX_REFERENCE, SQL_QUERIES_SNP_INDEL, GATK_HAPLOTYPE_CALLER, GATK_GENOTYPE_GVCFS, MARK_DUPLICATES
+Oct-18 18:12:30.868 [main] DEBUG nextflow.Session - Igniting dataflow network (20)
+Oct-18 18:12:30.872 [PathVisitor-1] DEBUG nextflow.file.PathVisitor - files for syntax: glob; folder: /home/phemarajata/Downloads/Burk_Genome_for_BI_Feb_2025/Fastq_250127/; pattern: *_R{1,2}*.fastq.gz; options: [:]
+Oct-18 18:12:30.872 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > INDEX_REFERENCE
+Oct-18 18:12:30.873 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > TRIMMOMATIC
+Oct-18 18:12:30.873 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > DOWNSAMPLE
+Oct-18 18:12:30.874 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > REFERENCE_ALIGNMENT
+Oct-18 18:12:30.874 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > MARK_DUPLICATES
+Oct-18 18:12:30.874 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > GATK_HAPLOTYPE_CALLER
+Oct-18 18:12:30.874 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > GATK_GENOTYPE_GVCFS
+Oct-18 18:12:30.874 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > VARIANT_FILTER
+Oct-18 18:12:30.874 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > DELLY
+Oct-18 18:12:30.874 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > PINDEL
+Oct-18 18:12:30.875 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SNPEFF_ANNOTATION
+Oct-18 18:12:30.875 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SQL_QUERIES_SNP_INDEL
+Oct-18 18:12:30.875 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SQL_QUERIES_DEL_DUP
+Oct-18 18:12:30.875 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ABRESISTANCE_REPORT
+Oct-18 18:12:30.875 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > HTML_REPORT
+Oct-18 18:12:30.875 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > MERGE_VCF
+Oct-18 18:12:30.875 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SNP_MATRIX
+Oct-18 18:12:30.876 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_3bbd4cb8de4153ae: /home/phemarajata/ARDaP-DSL2/modules/local/snpeff_annotation.nf
+  Script_bd53a9511c5a048c: /home/phemarajata/ARDaP-DSL2/main.nf
+  Script_8b038b2a52604d1f: /home/phemarajata/ARDaP-DSL2/modules/local/downsample.nf
+  Script_8bc17fbfe811a28e: /home/phemarajata/ARDaP-DSL2/modules/local/variant_filter.nf
+  Script_2502c1e5ae38ff38: /home/phemarajata/ARDaP-DSL2/modules/local/mark_duplicates.nf
+  Script_dc91639c96d1b37c: /home/phemarajata/ARDaP-DSL2/modules/local/sql_queries_del_dup.nf
+  Script_c71b359029d82f2b: /home/phemarajata/ARDaP-DSL2/modules/local/trimmomatic.nf
+  Script_8cf92067ff83037e: /home/phemarajata/ARDaP-DSL2/modules/local/gatk_genotypegvcfs.nf
+  Script_ca25c9a6b054aad4: /home/phemarajata/ARDaP-DSL2/modules/local/read_synthesis.nf
+  Script_b42d567be1088154: /home/phemarajata/ARDaP-DSL2/modules/local/html_report.nf
+  Script_a427bbcc15784595: /home/phemarajata/ARDaP-DSL2/modules/local/sql_queries_snp_indel.nf
+  Script_04c516abf4424e77: /home/phemarajata/ARDaP-DSL2/modules/local/snp_matrix.nf
+  Script_fdfe81f049fdaad4: /home/phemarajata/ARDaP-DSL2/modules/local/index_reference.nf
+  Script_b2f83a38eccdc709: /home/phemarajata/ARDaP-DSL2/modules/local/delly.nf
+  Script_480de7751b9df899: /home/phemarajata/ARDaP-DSL2/modules/local/pindel.nf
+  Script_f44dd73967e417a8: /home/phemarajata/ARDaP-DSL2/modules/local/merge_vcf.nf
+  Script_a115b454acf5bf07: /home/phemarajata/ARDaP-DSL2/modules/local/phylogeny.nf
+  Script_169373e55c4e2cda: /home/phemarajata/ARDaP-DSL2/modules/local/reference_alignment.nf
+  Script_1f36c9f40069fc08: /home/phemarajata/ARDaP-DSL2/modules/local/gatk_haplotypecaller.nf
+  Script_bf634a331127a71b: /home/phemarajata/ARDaP-DSL2/modules/local/abresistance_report.nf
+Oct-18 18:12:30.876 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Oct-18 18:12:30.877 [main] DEBUG nextflow.Session - Session await
+Oct-18 18:12:30.956 [Actor Thread 19] INFO  nextflow.conda.CondaCache - Creating env using mamba: /home/phemarajata/ARDaP-DSL2/environment.yml [cache /home/phemarajata/.conda/envs/env-4fd5ea968a08ee92-290765f5d88cf73c9fb2b35cdd7bd8f8]
+Oct-18 18:12:43.867 [Actor Thread 22] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=TRIMMOMATIC (4); work-dir=null
+  error [java.lang.IllegalStateException]: java.lang.IllegalStateException: Failed to create Conda environment
+  command: mamba env create --prefix /home/phemarajata/.conda/envs/env-4fd5ea968a08ee92-290765f5d88cf73c9fb2b35cdd7bd8f8 --file /home/phemarajata/ARDaP-DSL2/environment.yml
+  status : 1
+  message:
+    warning  libmamba 'repo.anaconda.com', a commercial channel hosted by Anaconda.com, is used.
+        
+    warning  libmamba Please make sure you understand Anaconda Terms of Services.
+        
+    warning  libmamba See: https://legal.anaconda.com/policies/en/
+    
+    error    libmamba Could not solve for environment specs
+        The following package could not be installed
+        └─ biopython >=1.79 * does not exist (perhaps a typo or a missing channel).
+    critical libmamba Could not solve for environment specs
+
+Oct-18 18:12:43.867 [Actor Thread 23] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=INDEX_REFERENCE; work-dir=null
+  error [java.lang.IllegalStateException]: java.lang.IllegalStateException: Failed to create Conda environment
+  command: mamba env create --prefix /home/phemarajata/.conda/envs/env-4fd5ea968a08ee92-290765f5d88cf73c9fb2b35cdd7bd8f8 --file /home/phemarajata/ARDaP-DSL2/environment.yml
+  status : 1
+  message:
+    warning  libmamba 'repo.anaconda.com', a commercial channel hosted by Anaconda.com, is used.
+        
+    warning  libmamba Please make sure you understand Anaconda Terms of Services.
+        
+    warning  libmamba See: https://legal.anaconda.com/policies/en/
+    
+    error    libmamba Could not solve for environment specs
+        The following package could not be installed
+        └─ biopython >=1.79 * does not exist (perhaps a typo or a missing channel).
+    critical libmamba Could not solve for environment specs
+
+Oct-18 18:12:43.870 [Actor Thread 16] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=INDEX_REFERENCE; work-dir=null
+  error [java.lang.InterruptedException]: java.lang.InterruptedException
+Oct-18 18:12:43.873 [Actor Thread 22] ERROR nextflow.processor.TaskProcessor - Error executing process > 'TRIMMOMATIC (4)'
+
+Caused by:
+  Failed to create Conda environment
+    command: mamba env create --prefix /home/phemarajata/.conda/envs/env-4fd5ea968a08ee92-290765f5d88cf73c9fb2b35cdd7bd8f8 --file /home/phemarajata/ARDaP-DSL2/environment.yml
+    status : 1
+    message:
+      warning  libmamba 'repo.anaconda.com', a commercial channel hosted by Anaconda.com, is used.
+          
+      warning  libmamba Please make sure you understand Anaconda Terms of Services.
+          
+      warning  libmamba See: https://legal.anaconda.com/policies/en/
+      
+      error    libmamba Could not solve for environment specs
+          The following package could not be installed
+          └─ biopython >=1.79 * does not exist (perhaps a typo or a missing channel).
+      critical libmamba Could not solve for environment specs
+
+
+java.lang.IllegalStateException: java.lang.IllegalStateException: Failed to create Conda environment
+  command: mamba env create --prefix /home/phemarajata/.conda/envs/env-4fd5ea968a08ee92-290765f5d88cf73c9fb2b35cdd7bd8f8 --file /home/phemarajata/ARDaP-DSL2/environment.yml
+  status : 1
+  message:
+    warning  libmamba 'repo.anaconda.com', a commercial channel hosted by Anaconda.com, is used.
+        
+    warning  libmamba Please make sure you understand Anaconda Terms of Services.
+        
+    warning  libmamba See: https://legal.anaconda.com/policies/en/
+    
+    error    libmamba Could not solve for environment specs
+        The following package could not be installed
+        └─ biopython >=1.79 * does not exist (perhaps a typo or a missing channel).
+    critical libmamba Could not solve for environment specs
+
+	at nextflow.conda.CondaCache.getCachePathFor(CondaCache.groovy:393)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.processor.TaskRun.getCondaEnv0(TaskRun.groovy:647)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1333)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
+	at org.codehaus.groovy.runtime.ScriptBytecodeAdapter.invokeMethodOnCurrentN(ScriptBytecodeAdapter.java:96)
+	at nextflow.processor.TaskRun.this$dist$invoke$1(TaskRun.groovy)
+	at nextflow.processor.TaskRun$2.methodMissing(TaskRun.groovy)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaClassImpl.invokeMissingMethod(MetaClassImpl.java:924)
+	at groovy.lang.MetaClassImpl.invokePropertyOrMissing(MetaClassImpl.java:1413)
+	at groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1335)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.processor.TaskRun$2.apply(TaskRun.groovy:638)
+	at nextflow.processor.TaskRun$2.apply(TaskRun.groovy)
+	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1708)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.processor.TaskRun.getCondaEnv(TaskRun.groovy:635)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.processor.TaskProcessor.createTaskHashKey(TaskProcessor.groovy:2232)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.processor.TaskProcessor.invokeTask(TaskProcessor.groovy:656)
+	at nextflow.processor.InvokeTaskAdapter.call(InvokeTaskAdapter.groovy:52)
+	at groovyx.gpars.dataflow.operator.DataflowOperatorActor.startTask(DataflowOperatorActor.java:120)
+	at groovyx.gpars.dataflow.operator.ForkingDataflowOperatorActor.access$001(ForkingDataflowOperatorActor.java:35)
+	at groovyx.gpars.dataflow.operator.ForkingDataflowOperatorActor$1.run(ForkingDataflowOperatorActor.java:58)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.IllegalStateException: Failed to create Conda environment
+  command: mamba env create --prefix /home/phemarajata/.conda/envs/env-4fd5ea968a08ee92-290765f5d88cf73c9fb2b35cdd7bd8f8 --file /home/phemarajata/ARDaP-DSL2/environment.yml
+  status : 1
+  message:
+    warning  libmamba 'repo.anaconda.com', a commercial channel hosted by Anaconda.com, is used.
+        
+    warning  libmamba Please make sure you understand Anaconda Terms of Services.
+        
+    warning  libmamba See: https://legal.anaconda.com/policies/en/
+    
+    error    libmamba Could not solve for environment specs
+        The following package could not be installed
+        └─ biopython >=1.79 * does not exist (perhaps a typo or a missing channel).
+    critical libmamba Could not solve for environment specs
+
+	at nextflow.conda.CondaCache.runCommand(CondaCache.groovy:341)
+	at nextflow.conda.CondaCache.createLocalCondaEnv0(CondaCache.groovy:312)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1333)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokePogoMethod(InvokerHelper.java:645)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:628)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethodSafe(InvokerHelper.java:82)
+	at nextflow.conda.CondaCache$_createLocalCondaEnv_closure1.doCall(CondaCache.groovy:267)
+	at nextflow.conda.CondaCache$_createLocalCondaEnv_closure1.call(CondaCache.groovy)
+	at nextflow.file.FileMutex.lock(FileMutex.groovy:106)
+	at nextflow.conda.CondaCache.createLocalCondaEnv(CondaCache.groovy:267)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1333)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokePogoMethod(InvokerHelper.java:645)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:628)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethodSafe(InvokerHelper.java:82)
+	at nextflow.conda.CondaCache$_getLazyImagePath_closure3.doCall(CondaCache.groovy:370)
+	at nextflow.conda.CondaCache$_getLazyImagePath_closure3.call(CondaCache.groovy)
+	at groovyx.gpars.dataflow.LazyDataflowVariable$1.run(LazyDataflowVariable.java:70)
+	... 3 common frames omitted
+Oct-18 18:12:43.877 [Actor Thread 22] DEBUG nextflow.Session - Session aborted -- Cause: java.lang.IllegalStateException: Failed to create Conda environment
+  command: mamba env create --prefix /home/phemarajata/.conda/envs/env-4fd5ea968a08ee92-290765f5d88cf73c9fb2b35cdd7bd8f8 --file /home/phemarajata/ARDaP-DSL2/environment.yml
+  status : 1
+  message:
+    warning  libmamba 'repo.anaconda.com', a commercial channel hosted by Anaconda.com, is used.
+        
+    warning  libmamba Please make sure you understand Anaconda Terms of Services.
+        
+    warning  libmamba See: https://legal.anaconda.com/policies/en/
+    
+    error    libmamba Could not solve for environment specs
+        The following package could not be installed
+        └─ biopython >=1.79 * does not exist (perhaps a typo or a missing channel).
+    critical libmamba Could not solve for environment specs
+
+Oct-18 18:12:43.889 [Actor Thread 22] DEBUG nextflow.Session - The following nodes are still active:
+[process] TRIMMOMATIC
+  status=ACTIVE
+  port 0: (queue) closed; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] DOWNSAMPLE
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] REFERENCE_ALIGNMENT
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: ref_index
+  port 1: (queue) OPEN  ; channel: -
+  port 2: (cntrl) -     ; channel: $
+
+[process] MARK_DUPLICATES
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] GATK_HAPLOTYPE_CALLER
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) OPEN  ; channel: reference
+  port 2: (value) OPEN  ; channel: fai
+  port 3: (value) OPEN  ; channel: dict
+  port 4: (cntrl) -     ; channel: $
+
+[process] GATK_GENOTYPE_GVCFS
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: gvcfs
+  port 1: (value) OPEN  ; channel: reference
+  port 2: (value) OPEN  ; channel: fai
+  port 3: (value) OPEN  ; channel: dict
+  port 4: (cntrl) -     ; channel: $
+
+[process] VARIANT_FILTER
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: vcf
+  port 1: (value) OPEN  ; channel: reference
+  port 2: (value) OPEN  ; channel: fai
+  port 3: (value) OPEN  ; channel: dict
+  port 4: (cntrl) -     ; channel: $
+
+[process] DELLY
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) OPEN  ; channel: reference
+  port 2: (value) OPEN  ; channel: fai
+  port 3: (cntrl) -     ; channel: $
+
+[process] PINDEL
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) OPEN  ; channel: reference
+  port 2: (cntrl) -     ; channel: $
+
+[process] SNPEFF_ANNOTATION
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: vcf
+  port 1: (cntrl) -     ; channel: $
+
+[process] SQL_QUERIES_SNP_INDEL
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: -
+  port 1: (value) bound ; channel: resistance_db
+  port 2: (cntrl) -     ; channel: $
+
+[process] SQL_QUERIES_DEL_DUP
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: resistance_db
+  port 2: (cntrl) -     ; channel: $
+
+[process] ABRESISTANCE_REPORT
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: sql_results
+  port 1: (value) OPEN  ; channel: resfinder_results
+  port 2: (value) bound ; channel: metadata
+  port 3: (cntrl) -     ; channel: $
+
+[process] HTML_REPORT
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: reports
+  port 1: (value) bound ; channel: metadata
+  port 2: (cntrl) -     ; channel: $
+
+[process] MERGE_VCF
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: vcfs
+  port 1: (cntrl) -     ; channel: $
+
+[process] SNP_MATRIX
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: vcf
+  port 1: (cntrl) -     ; channel: $
+
+Oct-18 18:12:43.892 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Oct-18 18:12:43.892 [main] DEBUG nextflow.Session - Session await > all processes finished
+Oct-18 18:12:43.892 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Oct-18 18:12:43.893 [Actor Thread 15] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=TRIMMOMATIC; work-dir=null
+  error [java.lang.InterruptedException]: java.lang.InterruptedException
+Oct-18 18:12:43.894 [main] INFO  nextflow.Nextflow - Pipeline completed with errors. Please check the log files for details.
+Oct-18 18:12:43.894 [Actor Thread 13] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=TRIMMOMATIC (8); work-dir=null
+  error [java.lang.IllegalStateException]: java.lang.IllegalStateException: Failed to create Conda environment
+  command: mamba env create --prefix /home/phemarajata/.conda/envs/env-4fd5ea968a08ee92-290765f5d88cf73c9fb2b35cdd7bd8f8 --file /home/phemarajata/ARDaP-DSL2/environment.yml
+  status : 1
+  message:
+    warning  libmamba 'repo.anaconda.com', a commercial channel hosted by Anaconda.com, is used.
+        
+    warning  libmamba Please make sure you understand Anaconda Terms of Services.
+        
+    warning  libmamba See: https://legal.anaconda.com/policies/en/
+    
+    error    libmamba Could not solve for environment specs
+        The following package could not be installed
+        └─ biopython >=1.79 * does not exist (perhaps a typo or a missing channel).
+    critical libmamba Could not solve for environment specs
+
+Oct-18 18:12:43.895 [Actor Thread 17] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=TRIMMOMATIC (3); work-dir=null
+  error [java.lang.IllegalStateException]: java.lang.IllegalStateException: Failed to create Conda environment
+  command: mamba env create --prefix /home/phemarajata/.conda/envs/env-4fd5ea968a08ee92-290765f5d88cf73c9fb2b35cdd7bd8f8 --file /home/phemarajata/ARDaP-DSL2/environment.yml
+  status : 1
+  message:
+    warning  libmamba 'repo.anaconda.com', a commercial channel hosted by Anaconda.com, is used.
+        
+    warning  libmamba Please make sure you understand Anaconda Terms of Services.
+        
+    warning  libmamba See: https://legal.anaconda.com/policies/en/
+    
+    error    libmamba Could not solve for environment specs
+        The following package could not be installed
+        └─ biopython >=1.79 * does not exist (perhaps a typo or a missing channel).
+    critical libmamba Could not solve for environment specs
+
+Oct-18 18:12:43.896 [Actor Thread 21] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=TRIMMOMATIC (2); work-dir=null
+  error [java.lang.IllegalStateException]: java.lang.IllegalStateException: Failed to create Conda environment
+  command: mamba env create --prefix /home/phemarajata/.conda/envs/env-4fd5ea968a08ee92-290765f5d88cf73c9fb2b35cdd7bd8f8 --file /home/phemarajata/ARDaP-DSL2/environment.yml
+  status : 1
+  message:
+    warning  libmamba 'repo.anaconda.com', a commercial channel hosted by Anaconda.com, is used.
+        
+    warning  libmamba Please make sure you understand Anaconda Terms of Services.
+        
+    warning  libmamba See: https://legal.anaconda.com/policies/en/
+    
+    error    libmamba Could not solve for environment specs
+        The following package could not be installed
+        └─ biopython >=1.79 * does not exist (perhaps a typo or a missing channel).
+    critical libmamba Could not solve for environment specs
+
+Oct-18 18:12:43.897 [Actor Thread 14] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=TRIMMOMATIC (5); work-dir=null
+  error [java.lang.IllegalStateException]: java.lang.IllegalStateException: Failed to create Conda environment
+  command: mamba env create --prefix /home/phemarajata/.conda/envs/env-4fd5ea968a08ee92-290765f5d88cf73c9fb2b35cdd7bd8f8 --file /home/phemarajata/ARDaP-DSL2/environment.yml
+  status : 1
+  message:
+    warning  libmamba 'repo.anaconda.com', a commercial channel hosted by Anaconda.com, is used.
+        
+    warning  libmamba Please make sure you understand Anaconda Terms of Services.
+        
+    warning  libmamba See: https://legal.anaconda.com/policies/en/
+    
+    error    libmamba Could not solve for environment specs
+        The following package could not be installed
+        └─ biopython >=1.79 * does not exist (perhaps a typo or a missing channel).
+    critical libmamba Could not solve for environment specs
+
+Oct-18 18:12:43.897 [Actor Thread 12] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=TRIMMOMATIC (9); work-dir=null
+  error [java.lang.IllegalStateException]: java.lang.IllegalStateException: Failed to create Conda environment
+  command: mamba env create --prefix /home/phemarajata/.conda/envs/env-4fd5ea968a08ee92-290765f5d88cf73c9fb2b35cdd7bd8f8 --file /home/phemarajata/ARDaP-DSL2/environment.yml
+  status : 1
+  message:
+    warning  libmamba 'repo.anaconda.com', a commercial channel hosted by Anaconda.com, is used.
+        
+    warning  libmamba Please make sure you understand Anaconda Terms of Services.
+        
+    warning  libmamba See: https://legal.anaconda.com/policies/en/
+    
+    error    libmamba Could not solve for environment specs
+        The following package could not be installed
+        └─ biopython >=1.79 * does not exist (perhaps a typo or a missing channel).
+    critical libmamba Could not solve for environment specs
+
+Oct-18 18:12:43.898 [Actor Thread 10] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=TRIMMOMATIC (7); work-dir=null
+  error [java.lang.IllegalStateException]: java.lang.IllegalStateException: Failed to create Conda environment
+  command: mamba env create --prefix /home/phemarajata/.conda/envs/env-4fd5ea968a08ee92-290765f5d88cf73c9fb2b35cdd7bd8f8 --file /home/phemarajata/ARDaP-DSL2/environment.yml
+  status : 1
+  message:
+    warning  libmamba 'repo.anaconda.com', a commercial channel hosted by Anaconda.com, is used.
+        
+    warning  libmamba Please make sure you understand Anaconda Terms of Services.
+        
+    warning  libmamba See: https://legal.anaconda.com/policies/en/
+    
+    error    libmamba Could not solve for environment specs
+        The following package could not be installed
+        └─ biopython >=1.79 * does not exist (perhaps a typo or a missing channel).
+    critical libmamba Could not solve for environment specs
+
+Oct-18 18:12:43.898 [Actor Thread 18] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=TRIMMOMATIC (6); work-dir=null
+  error [java.lang.IllegalStateException]: java.lang.IllegalStateException: Failed to create Conda environment
+  command: mamba env create --prefix /home/phemarajata/.conda/envs/env-4fd5ea968a08ee92-290765f5d88cf73c9fb2b35cdd7bd8f8 --file /home/phemarajata/ARDaP-DSL2/environment.yml
+  status : 1
+  message:
+    warning  libmamba 'repo.anaconda.com', a commercial channel hosted by Anaconda.com, is used.
+        
+    warning  libmamba Please make sure you understand Anaconda Terms of Services.
+        
+    warning  libmamba See: https://legal.anaconda.com/policies/en/
+    
+    error    libmamba Could not solve for environment specs
+        The following package could not be installed
+        └─ biopython >=1.79 * does not exist (perhaps a typo or a missing channel).
+    critical libmamba Could not solve for environment specs
+
+Oct-18 18:12:43.898 [Actor Thread 20] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=TRIMMOMATIC (1); work-dir=null
+  error [java.lang.IllegalStateException]: java.lang.IllegalStateException: Failed to create Conda environment
+  command: mamba env create --prefix /home/phemarajata/.conda/envs/env-4fd5ea968a08ee92-290765f5d88cf73c9fb2b35cdd7bd8f8 --file /home/phemarajata/ARDaP-DSL2/environment.yml
+  status : 1
+  message:
+    warning  libmamba 'repo.anaconda.com', a commercial channel hosted by Anaconda.com, is used.
+        
+    warning  libmamba Please make sure you understand Anaconda Terms of Services.
+        
+    warning  libmamba See: https://legal.anaconda.com/policies/en/
+    
+    error    libmamba Could not solve for environment specs
+        The following package could not be installed
+        └─ biopython >=1.79 * does not exist (perhaps a typo or a missing channel).
+    critical libmamba Could not solve for environment specs
+
+Oct-18 18:12:43.899 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=0ms; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=0; peakCpus=0; peakMemory=0; ]
+Oct-18 18:12:43.899 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow completed -- saving trace file
+Oct-18 18:12:43.900 [main] DEBUG nextflow.trace.ReportObserver - Workflow completed -- rendering execution report
+Oct-18 18:12:44.167 [main] DEBUG nextflow.trace.TimelineObserver - Workflow completed -- rendering execution timeline
+Oct-18 18:12:44.221 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Oct-18 18:12:44.228 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

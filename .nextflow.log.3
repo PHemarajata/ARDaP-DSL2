@@ -1,0 +1,22 @@
+Oct-18 18:09:14.276 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf -profile workstation --fastq '/home/phemarajata/Downloads/Burk_Genome_for_BI_Feb_2025/Fastq_250127/*_{1,2}.fastq.gz' --species Burkholderia_pseudomallei
+Oct-18 18:09:14.321 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.04.8
+Oct-18 18:09:14.342 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/phemarajata/.nextflow/plugins; core-plugins: nf-amazon@2.15.0-patch2,nf-azure@1.16.0-patch1,nf-cloudcache@0.4.3,nf-codecommit@0.2.3,nf-console@1.2.1,nf-google@1.21.1,nf-k8s@1.0.1,nf-tower@1.11.4-patch2,nf-wave@1.12.1
+Oct-18 18:09:14.357 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Oct-18 18:09:14.358 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Oct-18 18:09:14.360 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Oct-18 18:09:14.371 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Oct-18 18:09:14.394 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/phemarajata/ARDaP-DSL2/nextflow.config
+Oct-18 18:09:14.396 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/phemarajata/ARDaP-DSL2/nextflow.config
+Oct-18 18:09:14.417 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/phemarajata/.nextflow/secrets/store.json
+Oct-18 18:09:14.420 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@41a6d121] - activable => nextflow.secret.LocalSecretsProvider@41a6d121
+Oct-18 18:09:14.429 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `workstation`
+Oct-18 18:09:15.140 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [standard, dgx, test, conda, workstation, singularity, docker]
+Oct-18 18:09:15.145 [main] WARN  nextflow.config.ConfigBuilder - It appears you have never run this project before -- Option `-resume` is ignored
+Oct-18 18:09:15.176 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=1 by probing script field
+Oct-18 18:09:15.183 [main] DEBUG nextflow.cli.Launcher - Operation aborted
+nextflow.exception.AbortOperationException: Nextflow DSL1 is no longer supported — Update your script to DSL2, or use Nextflow 22.10.x or earlier
+	at nextflow.NextflowMeta.enableDsl(NextflowMeta.groovy:149)
+	at nextflow.cli.CmdRun.launchInfo(CmdRun.groovy:420)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:336)
+	at nextflow.cli.Launcher.run(Launcher.groovy:513)
+	at nextflow.cli.Launcher.main(Launcher.groovy:673)
