@@ -109,6 +109,8 @@ nextflow run main.nf -profile workstation --fastq "*_{1,2}.fastq.gz"
 - **Linux/macOS** (tested on Ubuntu 20.04+, CentOS 7+, macOS 12+)
 - **Hardware**: Minimum 4 cores, 8GB RAM, 50GB storage
 
+> **💡 Having conda issues?** See `CONDA_TROUBLESHOOTING.md` for detailed solutions to common environment problems.
+
 ### Option 1: Complete Environment (Recommended)
 ```bash
 # Clone the repository
@@ -123,21 +125,31 @@ conda activate ardap
 ./validate_dsl2.sh
 ```
 
-### Option 2: Minimal Environment (Faster Installation)
+### Option 2: Robust Environment (Most Compatible)
 ```bash
 # Clone the repository
 git clone https://github.com/PHemarajata/ARDaP-DSL2.git
 cd ARDaP-DSL2
 
-# Create minimal environment (5-15 min vs 10-30 min)
-conda env create -f environment_minimal.yml
-conda activate ardap-minimal
+# Create robust environment with flexible versions (best compatibility)
+conda env create -f environment_robust.yml
+conda activate ardap
 
 # Validate installation
 ./validate_dsl2.sh
 ```
 
-### Option 3: Migration from Existing ARDaP
+### Option 3: Minimal Environment (Fastest)
+```bash
+# For quickest installation with essential tools only
+conda env create -f environment_minimal.yml
+conda activate ardap-minimal
+
+# Validate installation  
+./validate_dsl2.sh
+```
+
+### Option 4: Migration from Existing ARDaP
 ```bash
 # If you have an existing ARDaP installation
 cd /path/to/existing/ARDaP
@@ -322,13 +334,15 @@ results/
 
 #### Environment Creation Fails
 ```bash
-# Try minimal environment first
-conda env create -f environment_minimal.yml
+# Try the most robust environment first
+conda env create -f environment_robust.yml
 
-# Or update conda/mamba
-conda update conda
-conda install mamba
-mamba env create -f environment.yml
+# Or use mamba for better dependency resolution
+conda install mamba -n base -c conda-forge
+mamba env create -f environment_minimal.yml
+
+# For detailed troubleshooting, see:
+# CONDA_TROUBLESHOOTING.md
 ```
 
 #### Memory Errors

@@ -1,0 +1,74 @@
+name: ardap
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  # Java environment - required for GATK and other tools
+  - openjdk>=11
+  
+  # Core bioinformatics tools (flexible versions)
+  - nextflow>=23.04.0
+  - bwa>=0.7.15
+  - samtools>=1.15
+  - bcftools>=1.15
+  - bedtools>=2.29
+  - picard>=2.27
+  
+  # GATK4 - flexible version
+  - gatk4>=4.2
+  
+  # Variant calling and annotation
+  - snpeff>=4.3
+  - pindel>=0.2.5
+  - delly>=0.9
+  
+  # Read processing
+  - trimmomatic>=0.36
+  - seqtk>=1.3
+  - art
+  
+  # Quality control and coverage
+  - mosdepth>=0.2
+  - fastqc>=0.11
+  
+  # Phylogenetics
+  - fasttree>=2.1
+  
+  # Resistance gene detection  
+  - kma>=1.3
+  
+  # Database and utilities
+  - sqlite>=3.30
+  - bc
+  - coreutils
+  
+  # Python environment
+  - python>=3.8
+  - pip
+  - setuptools
+  - wheel
+  
+  # Python scientific libraries (flexible)
+  - numpy>=1.19
+  - pandas>=1.3
+  - matplotlib>=3.3
+  - scipy>=1.7
+  - seaborn>=0.11
+  
+  # Bioinformatics Python packages (flexible)
+  - biopython>=1.75
+  
+  # System utilities
+  - curl
+  - wget
+  - gzip
+  
+  # Python packages via pip (for packages not available via conda)
+  - pip:
+    - cgecore>=1.5.0
+    - gitpython>=3.1.0
+    - python-dateutil>=2.8.0
+    - tabulate>=0.8.0
+    - click>=7.0
+    - pyyaml>=5.4
