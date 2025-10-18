@@ -1,0 +1,54 @@
+name: ardap-minimal
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  # Java - required for GATK
+  - openjdk=17
+  
+  # Core workflow engine
+  - nextflow>=23.04.0
+  
+  # Essential bioinformatics tools
+  - bwa>=0.7.17
+  - samtools>=1.17
+  - bcftools>=1.17
+  - bedtools>=2.30
+  - picard>=3.0
+  - gatk4>=4.4.0
+  
+  # Variant tools
+  - snpeff>=5.1
+  - pindel>=0.2.5
+  - delly>=1.1
+  
+  # Read processing
+  - trimmomatic>=0.39
+  - seqtk>=1.3
+  - art>=2016.06.05
+  
+  # Quality and phylogenetics
+  - mosdepth>=0.3.3
+  - fasttree>=2.1.10
+  
+  # Resistance detection
+  - kma>=1.4
+  
+  # System tools
+  - sqlite>=3.40
+  - bc
+  - coreutils
+  
+  # Python environment
+  - python>=3.9
+  - pip
+  - numpy
+  - biopython>=1.79
+  
+  # Install Python packages
+  - pip:
+    - cgecore>=1.5.6
+    - gitpython>=3.1.0
+    - python-dateutil>=2.8.0
+    - tabulate>=0.9.0

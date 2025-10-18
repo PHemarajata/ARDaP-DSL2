@@ -1,0 +1,93 @@
+name: ardap
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  # Core system tools
+  - conda-forge::ca-certificates
+  - conda-forge::openssl
+  - conda-forge::libgcc-ng
+  - conda-forge::libstdcxx-ng
+  
+  # Java environment - required for GATK and other tools
+  - conda-forge::openjdk=17
+  
+  # Core bioinformatics tools
+  - bioconda::nextflow=24.04.4
+  - bioconda::bwa=0.7.18
+  - bioconda::samtools=1.19.2
+  - bioconda::bcftools=1.19
+  - bioconda::bedtools=2.31.1
+  - bioconda::picard=3.1.1
+  
+  # GATK4 - latest stable version
+  - bioconda::gatk4=4.5.0.0
+  
+  # Variant calling and annotation
+  - bioconda::snpeff=5.2
+  - bioconda::pindel=0.2.5b9
+  - bioconda::delly=1.1.8
+  
+  # Read processing
+  - bioconda::trimmomatic=0.39
+  - bioconda::seqtk=1.4
+  - bioconda::art=2016.06.05
+  
+  # Quality control and coverage
+  - bioconda::mosdepth=0.3.8
+  - bioconda::fastqc=0.12.1
+  
+  # Phylogenetics
+  - bioconda::fasttree=2.1.11
+  
+  # Resistance gene detection  
+  - bioconda::kma=1.4.14
+  
+  # Database and utilities
+  - conda-forge::sqlite=3.45.3
+  - conda-forge::bc
+  
+  # Python environment
+  - conda-forge::python=3.11
+  - conda-forge::pip
+  - conda-forge::setuptools
+  - conda-forge::wheel
+  
+  # Python scientific libraries
+  - conda-forge::numpy=1.24.3
+  - conda-forge::pandas=2.0.3
+  - conda-forge::matplotlib=3.7.2
+  - conda-forge::seaborn=0.12.2
+  - conda-forge::scipy=1.11.1
+  
+  # Bioinformatics Python packages
+  - bioconda::biopython=1.81
+  
+  # R environment (optional, for phylogenetics plotting)
+  - conda-forge::r-base=4.3.1
+  - conda-forge::r-ape=5.7_1
+  - conda-forge::r-phytools=1.9_16
+  
+  # System utilities
+  - conda-forge::coreutils
+  - conda-forge::grep
+  - conda-forge::sed
+  - conda-forge::gawk
+  - conda-forge::curl
+  - conda-forge::wget
+  
+  # Compression tools
+  - conda-forge::gzip
+  - conda-forge::bzip2
+  - conda-forge::xz
+  
+  # Python packages via pip (for packages not available via conda)
+  - pip
+  - pip:
+    - cgecore>=1.5.6
+    - gitpython>=3.1.30
+    - python-dateutil>=2.8.2
+    - tabulate>=0.9.0
+    - click>=8.1.0
+    - pyyaml>=6.0
