@@ -1,3 +1,9 @@
 ID,Barcode,LName,FName,DOB,Location,sampType,sampID,sampDate,sampSource,sampSeq,reportLab,reportDate,comments,organism,requestor,requestorContact,lineageNum,lineageName
-AUS964,BARCODE,Jones,Douglas,1890-01-01,Oxford,Sputum,ABDH615D!,1916-12-25; 15:33,Pulmonary,MGIT Cultured Isolate,Oxford,1917-01-03,No words needed,Doppelganglius Bob,Dr. Requestor Name,req_contact@genome.com,2.2.1,East-Asian Beijing
-AUS959,BARCODE,Cole,Gordon,1862-12-12,Cambridge,Sputum,ABD7895715,1916-12-26; 14:22,Pulmonary,MGIT Cultured Isolate,Oxford,1917-01-06,I'm worried about coup,Mycobacterium tuberculosis,Dr. Requestor Name,req_contact@genome.com,2.2.1,East-Asian Beijing
+IP-0131-3_S1_L001,BARCODE1,Patient,One,1990-01-01,Lab,Sputum,SAMPLE1,2024-01-01,Clinical,MGIT,Lab,2024-01-02,Sample 1,Burkholderia pseudomallei,Dr. Test,contact@lab.com,1,Type1
+IP-0132-1_S2_L001,BARCODE2,Patient,Two,1990-01-02,Lab,Sputum,SAMPLE2,2024-01-01,Clinical,MGIT,Lab,2024-01-02,Sample 2,Burkholderia pseudomallei,Dr. Test,contact@lab.com,1,Type1
+IP-0133-9_S3_L001,BARCODE3,Patient,Three,1990-01-03,Lab,Sputum,SAMPLE3,2024-01-01,Clinical,MGIT,Lab,2024-01-02,Sample 3,Burkholderia pseudomallei,Dr. Test,contact@lab.com,1,Type1
+IP-0134-7_S4_L001,BARCODE4,Patient,Four,1990-01-04,Lab,Sputum,SAMPLE4,2024-01-01,Clinical,MGIT,Lab,2024-01-02,Sample 4,Burkholderia pseudomallei,Dr. Test,contact@lab.com,1,Type1
+IP-0135-4_S5_L001,BARCODE5,Patient,Five,1990-01-05,Lab,Sputum,SAMPLE5,2024-01-01,Clinical,MGIT,Lab,2024-01-02,Sample 5,Burkholderia pseudomallei,Dr. Test,contact@lab.com,1,Type1
+IP-0136-2_S6_L001,BARCODE6,Patient,Six,1990-01-06,Lab,Sputum,SAMPLE6,2024-01-01,Clinical,MGIT,Lab,2024-01-02,Sample 6,Burkholderia pseudomallei,Dr. Test,contact@lab.com,1,Type1
+IP-0138-8_S8_L001,BARCODE8,Patient,Eight,1990-01-08,Lab,Sputum,SAMPLE8,2024-01-01,Clinical,MGIT,Lab,2024-01-02,Sample 8,Burkholderia pseudomallei,Dr. Test,contact@lab.com,1,Type1
+Undetermined_S0_L001,BARCODE0,Unknown,Sample,1990-01-01,Lab,Sputum,SAMPLE0,2024-01-01,Clinical,MGIT,Lab,2024-01-02,Undetermined,Burkholderia pseudomallei,Dr. Test,contact@lab.com,1,Type1

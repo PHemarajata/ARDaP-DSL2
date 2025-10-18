@@ -116,6 +116,8 @@ if (!params.species) {
 species = params.species
 database_config_file = "${baseDir}/Databases/Database.config"
 
+
+
 // Get reference and database paths
 def get_database_info(species, config_file) {
     try {
@@ -148,7 +150,9 @@ def ref = db_info.reference
 params.reference = "${baseDir}/Databases/${database}/${ref}"
 params.resistance_db = "${baseDir}/Databases/${database}/${database}.db"
 params.snpeff = database
-
+// Set default values for optional analyses
+params.matrix = params.matrix ?: false
+params.phylogeny = params.phylogeny ?: false
 // Validate required files
 def resistance_database_file = file(params.resistance_db)
 if (!resistance_database_file.exists()) {
@@ -246,9 +250,9 @@ workflow {
         INDEX_REFERENCE.out.dict
     )
     
-    // Step 7: Genotype GVCFs
+    // Step 7: Genotype GVCFs  
     GATK_GENOTYPE_GVCFS(
-        GATK_HAPLOTYPE_CALLER.out.gvcf.collect(),
+        GATK_HAPLOTYPE_CALLER.out.gvcf,
         INDEX_REFERENCE.out.reference,
         INDEX_REFERENCE.out.fai,
         INDEX_REFERENCE.out.dict
@@ -295,32 +299,38 @@ workflow {
     }
     
     // Step 14: Generate antibiotic resistance reports
-    all_sql_results = SQL_QUERIES_SNP_INDEL.out.results
-    if (params.delly) {
-        all_sql_results = all_sql_results.mix(SQL_QUERIES_DEL_DUP.out.results)
-    }
-    
+    // Join channels by sample ID to ensure matching
+    snp_and_resfinder = SQL_QUERIES_SNP_INDEL.out.results
+        .join(REFERENCE_ALIGNMENT.out.resfinder_results)
+
     ABRESISTANCE_REPORT(
-        all_sql_results.collect(),
-        REFERENCE_ALIGNMENT.out.resfinder_results.collect(),
+        snp_and_resfinder,                     // Now each tuple is [id, snp_file, resfinder_file]
         file(params.patientMetaData)
     )
-    
     // Step 15: Generate HTML report
     HTML_REPORT(
-        ABRESISTANCE_REPORT.out.reports.collect(),
+        ABRESISTANCE_REPORT.out.reports,
         file(params.patientMetaData)
     )
     
     // Optional: Matrix and phylogeny analysis
+    // Optional: Matrix and phylogeny analysis
+    // DISABLED - causing issues with empty VCF
+    /*
     if (params.matrix) {
-        MERGE_VCF(VARIANT_FILTER.out.vcf.collect())
+        MERGE_VCF(
+            VARIANT_FILTER.out.vcf.map { id, vcf, tbi -> vcf }.collect(),
+            INDEX_REFERENCE.out.reference,
+            INDEX_REFERENCE.out.fai,
+            INDEX_REFERENCE.out.dict
+        )
         SNP_MATRIX(MERGE_VCF.out.vcf)
         
         if (params.phylogeny) {
             PHYLOGENY(SNP_MATRIX.out.matrix)
         }
     }
+    */
 }
 
 /*

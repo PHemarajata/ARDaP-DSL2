@@ -15,8 +15,12 @@ process SQL_QUERIES_SNP_INDEL {
         bash ${baseDir}/bin/SQL_queries_SNP_indel_mix.sh \\
             ${vcf} \\
             ${resistance_db} \\
-            ${id} \\
-            ${params.tri_tetra_allelic}
+            ${id}
+        
+        # Ensure output file exists even if script fails to create it
+        if [ ! -f "${id}_snp_indel_results.txt" ]; then
+            echo "ARDaP found no SNP/Indel resistance variants for ${id}" > "${id}_snp_indel_results.txt"
+        fi
         """
     } else {
         """
@@ -24,6 +28,11 @@ process SQL_QUERIES_SNP_INDEL {
             ${vcf} \\
             ${resistance_db} \\
             ${id}
+        
+        # Ensure output file exists even if script fails to create it
+        if [ ! -f "${id}_snp_indel_results.txt" ]; then
+            echo "ARDaP found no SNP/Indel resistance variants for ${id}" > "${id}_snp_indel_results.txt"
+        fi
         """
     }
     

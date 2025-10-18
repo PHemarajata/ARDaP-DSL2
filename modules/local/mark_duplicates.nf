@@ -18,6 +18,10 @@ process MARK_DUPLICATES {
         M=${id}_metrics.txt \\
         CREATE_INDEX=true \\
         VALIDATION_STRINGENCY=SILENT
+    # Fix Picard's incorrect index naming convention  
+    if [[ -f "${id}_dup.bai" && ! -f "${id}_dup.bam.bai" ]]; then
+        mv "${id}_dup.bai" "${id}_dup.bam.bai"
+    fi
     """
     
     stub:

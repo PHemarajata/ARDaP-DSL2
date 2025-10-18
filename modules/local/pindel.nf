@@ -11,6 +11,18 @@ process PINDEL {
     
     script:
     """
+    # Index reference genome if .fai file is missing
+    if [ ! -f "${reference}.fai" ]; then
+        echo "Creating FASTA index for ${reference}"
+        samtools faidx ${reference}
+    fi
+    
+    # Verify index was created
+    if [ ! -f "${reference}.fai" ]; then
+        echo "ERROR: Failed to create FASTA index"
+        exit 1
+    fi
+    
     # Create pindel config file
     echo "${bam} ${params.insert_size ?: 500} ${id}" > pindel_config.txt
     

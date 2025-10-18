@@ -1,29 +1,40 @@
 process GATK_GENOTYPE_GVCFS {
     label 'gatk'
+    tag "$id"
     
     input:
-    path gvcfs
+    tuple val(id), path(gvcf), path(tbi)
     path reference
     path fai
     path dict
     
     output:
-    path "joint_genotyped.vcf.gz", emit: vcf
-    path "joint_genotyped.vcf.gz.tbi", emit: tbi
+    tuple val(id), path("${id}.vcf.gz"), path("${id}.vcf.gz.tbi"), emit: vcf
     
     script:
-    def gvcf_list = gvcfs.collect { "-V ${it}" }.join(' ')
     """
+    # Ensure reference indices exist
+    if [ ! -f "${reference}.fai" ]; then
+        echo "Creating FASTA index for reference"
+        samtools faidx ${reference}
+    fi
+    
+    if [ ! -f "${dict}" ]; then
+        echo "Creating sequence dictionary for reference"
+        gatk CreateSequenceDictionary -R ${reference} -O ${reference.baseName}.dict
+    fi
+    
+    # Genotype individual GVCF (not joint)
     gatk --java-options "-Xmx${task.memory.toGiga()}g" GenotypeGVCFs \\
         -R ${reference} \\
-        ${gvcf_list} \\
-        -O joint_genotyped.vcf.gz \\
+        -V ${gvcf} \\
+        -O ${id}.vcf.gz \\
         --verbosity ERROR
     """
     
     stub:
     """
-    touch joint_genotyped.vcf.gz
-    touch joint_genotyped.vcf.gz.tbi
+    touch ${id}.vcf.gz
+    touch ${id}.vcf.gz.tbi
     """
 }

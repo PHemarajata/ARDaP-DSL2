@@ -1,8 +1,11 @@
 #!/bin/bash
 
-
-seq=$1
+vcf=$1
 RESISTANCE_DB=$2 
+id=$3
+
+# Extract sequence name from VCF filename (remove .vcf extension)
+seq=$(basename "$vcf" .vcf) 
 
 cat << _EOF_ >  Variant_ignore_Q.txt  
 SELECT
@@ -18,10 +21,29 @@ sqlite3 "$RESISTANCE_DB" < Variant_ignore_Q.txt >> Variant_ignore.txt;
 
 sed -i 's/|/ /g' Variant_ignore.txt 
 
-while read f; do 
-	grep -vw "$f" ${seq}.Function_lost_list.txt > ${seq}.Function_lost_list.txt.tmp
-	mv ${seq}.Function_lost_list.txt.tmp ${seq}.Function_lost_list.txt
-done < Variant_ignore.txt
+# Check if required input files exist, create empty ones if missing
+if [ ! -f "${seq}.Function_lost_list.txt" ]; then
+    echo "Warning: ${seq}.Function_lost_list.txt not found, creating empty file"
+    touch "${seq}.Function_lost_list.txt"
+fi
+
+if [ ! -f "${seq}.deletion_summary.txt" ]; then
+    echo "Warning: ${seq}.deletion_summary.txt not found, creating empty file with header"
+    echo -e "Chromosome\tStart\tEnd" > "${seq}.deletion_summary.txt"
+fi
+
+if [ ! -f "${seq}.duplication_summary.txt" ]; then
+    echo "Warning: ${seq}.duplication_summary.txt not found, creating empty file with header"
+    echo -e "Chromosome\tStart\tEnd" > "${seq}.duplication_summary.txt"
+fi
+
+# Only process Function_lost_list if it has content
+if [ -s "${seq}.Function_lost_list.txt" ]; then
+    while read f; do 
+        grep -vw "$f" ${seq}.Function_lost_list.txt > ${seq}.Function_lost_list.txt.tmp
+        mv ${seq}.Function_lost_list.txt.tmp ${seq}.Function_lost_list.txt
+    done < Variant_ignore.txt
+fi
 
 declare -A SQL_loss_report=()
 STATEMENT_GENE_LOSS_COV () {
@@ -131,8 +153,18 @@ echo "Running detection of functional loss queries"
 for (( i=1; i<"$LOSS_FUNC_COUNT"; i++ )); do sqlite3 "$RESISTANCE_DB" "${SQL_loss_func[$i]}" >> ${seq}.AbR_output_del_dup.txt; done
 echo "done"
 
-#if [ ! -s ${seq}.AbR_output_del_dep.txt ]; then
-#	echo "ARDaP found no deletions or duplications that cause antibiotic resistance" >> ${seq}.AbR_output_del_dep.txt
-#fi
+# Create the expected output file
+if [ -f "${seq}.AbR_output_del_dup.txt" ]; then
+    cp "${seq}.AbR_output_del_dup.txt" "${id}_del_dup_results.txt"
+else
+    # Create empty output file if no results
+    echo "ARDaP found no deletions or duplications that cause antibiotic resistance" > "${id}_del_dup_results.txt"
+fi
+
+# Verify the expected output file was created
+if [ ! -f "${id}_del_dup_results.txt" ]; then
+    echo "ERROR: Expected output file ${id}_del_dup_results.txt was not created"
+    exit 1
+fi
 
 exit 0

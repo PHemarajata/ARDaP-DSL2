@@ -1,28 +1,467 @@
-Oct-18 18:05:37.160 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf -profile workstation --fastq '/home/phemarajata/Downloads/Burk_Genome_for_BI_Feb_2025/Fastq_250127/*_{1,2}.fastq.gz' --species Burkholderia_pseudomallei
-Oct-18 18:05:37.196 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.04.8
-Oct-18 18:05:37.230 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/phemarajata/.nextflow/plugins; core-plugins: nf-amazon@2.15.0-patch2,nf-azure@1.16.0-patch1,nf-cloudcache@0.4.3,nf-codecommit@0.2.3,nf-console@1.2.1,nf-google@1.21.1,nf-k8s@1.0.1,nf-tower@1.11.4-patch2,nf-wave@1.12.1
-Oct-18 18:05:37.244 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
-Oct-18 18:05:37.245 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
-Oct-18 18:05:37.247 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
-Oct-18 18:05:37.255 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
-Oct-18 18:05:37.272 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/phemarajata/ARDaP-DSL2/nextflow.config
-Oct-18 18:05:37.276 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/phemarajata/ARDaP-DSL2/nextflow.config
-Oct-18 18:05:37.297 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/phemarajata/.nextflow/secrets/store.json
-Oct-18 18:05:37.300 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@1d01dfa5] - activable => nextflow.secret.LocalSecretsProvider@1d01dfa5
-Oct-18 18:05:37.312 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `workstation`
-Oct-18 18:05:37.739 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: []
-Oct-18 18:05:37.744 [main] DEBUG nextflow.cli.Launcher - Operation aborted
-nextflow.exception.AbortOperationException: Unknown configuration profile: 'workstation'
-	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
-	at nextflow.config.ConfigBuilder.checkValidProfile(ConfigBuilder.groovy:511)
-	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
-	at nextflow.config.ConfigBuilder.buildConfig0(ConfigBuilder.groovy:386)
-	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
-	at nextflow.config.ConfigBuilder.buildGivenFiles(ConfigBuilder.groovy:318)
-	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
-	at nextflow.config.ConfigBuilder.buildConfigObject(ConfigBuilder.groovy:816)
-	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
-	at nextflow.config.ConfigBuilder.build(ConfigBuilder.groovy:829)
-	at nextflow.cli.CmdRun.run(CmdRun.groovy:333)
-	at nextflow.cli.Launcher.run(Launcher.groovy:513)
-	at nextflow.cli.Launcher.main(Launcher.groovy:673)
+Oct-18 23:02:15.467 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf -profile workstation --fastq '/home/phemarajata/Downloads/Burk_Genome_for_BI_Feb_2025/Fastq_250127/*_R{1,2}*.fastq.gz' --species Burkholderia_pseudomallei --outdir /home/phemarajata/Downloads/Burk_Genome_for_BI_Feb_2025/Fastq_250127/results --database Burkholderia_pseudomallei_k96243 -resume
+Oct-18 23:02:15.575 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.04.8
+Oct-18 23:02:15.596 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/phemarajata/.nextflow/plugins; core-plugins: nf-amazon@2.15.0-patch2,nf-azure@1.16.0-patch1,nf-cloudcache@0.4.3,nf-codecommit@0.2.3,nf-console@1.2.1,nf-google@1.21.1,nf-k8s@1.0.1,nf-tower@1.11.4-patch2,nf-wave@1.12.1
+Oct-18 23:02:15.616 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Oct-18 23:02:15.617 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Oct-18 23:02:15.619 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Oct-18 23:02:15.632 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Oct-18 23:02:15.653 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/phemarajata/ARDaP-DSL2/nextflow.config
+Oct-18 23:02:15.656 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/phemarajata/ARDaP-DSL2/nextflow.config
+Oct-18 23:02:15.701 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/phemarajata/.nextflow/secrets/store.json
+Oct-18 23:02:15.706 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@2234078] - activable => nextflow.secret.LocalSecretsProvider@2234078
+Oct-18 23:02:15.719 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `workstation`
+Oct-18 23:02:16.698 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [standard, dgx, test, conda, workstation, singularity, docker]
+Oct-18 23:02:16.736 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Oct-18 23:02:16.751 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [disturbed_sax] DSL2 - revision: d51912febf
+Oct-18 23:02:16.752 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Oct-18 23:02:16.753 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Oct-18 23:02:16.799 [main] DEBUG nextflow.Session - Session UUID: f277df0e-7133-4999-aac1-2308e19176e6
+Oct-18 23:02:16.800 [main] DEBUG nextflow.Session - Run name: disturbed_sax
+Oct-18 23:02:16.800 [main] DEBUG nextflow.Session - Executor pool size: 22
+Oct-18 23:02:16.808 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Oct-18 23:02:16.813 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=66; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Oct-18 23:02:16.832 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 25.04.8 build 5956
+  Created: 06-10-2025 21:19 UTC (07-10-2025 04:19 ICST)
+  System: Linux 6.14.0-33-generic
+  Runtime: Groovy 4.0.26 on OpenJDK 64-Bit Server VM 17.0.15-internal+0-adhoc..src
+  Encoding: UTF-8 (UTF-8)
+  Process: 387963@phemarajata-Stealth-16-MercedesAMG-A1VGG [127.0.1.1]
+  CPUs: 22 - Mem: 62.3 GB (8 GB) - Swap: 8 GB (8 GB)
+Oct-18 23:02:16.870 [main] DEBUG nextflow.Session - Work-dir: /home/phemarajata/ARDaP-DSL2/work [ext2/ext3]
+Oct-18 23:02:16.901 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Oct-18 23:02:16.911 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Oct-18 23:02:16.940 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Oct-18 23:02:16.966 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Oct-18 23:02:16.976 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 23; maxThreads: 1000
+Oct-18 23:02:17.059 [main] DEBUG nextflow.Session - Session start
+Oct-18 23:02:17.063 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow started -- trace file: /home/phemarajata/Downloads/Burk_Genome_for_BI_Feb_2025/Fastq_250127/results/pipeline_info/execution_trace.txt
+Oct-18 23:02:17.510 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Oct-18 23:02:17.519 [main] INFO  nextflow.Nextflow - 
+===============================================================================
+                           NF-ARDaP DSL2
+                             v2.4.0
+================================================================================
+
+Optional Parameters:
+
+    --fastq      Input PE read file wildcard (default: *_{1,2}.fastq.gz)
+
+                 Currently this is set to /home/phemarajata/Downloads/Burk_Genome_for_BI_Feb_2025/Fastq_250127/*_R{1,2}*.fastq.gz
+
+    --species    Species specific database for resistance determination
+                 (default: Burkholderia_pseudomallei)
+
+                 Currently you are using Burkholderia_pseudomallei
+
+    --assemblies Optionally include a directory of assembled genomes in the
+                 analysis. Set this parameter to 'true' if you wish to included
+                 assembled genomes and place all assembled genomes in a
+                 subdirectory called 'assemblies'. (default: false)
+
+                 Currently assemblies is set to false
+
+    --notrim     Although not generally recommended to switch off, set to true
+                 if you want to skip the trimmomatic step (default: false).
+                 Currently notrim is set to true
+
+    --mixtures   Optionally perform within species mixtures analysis.
+                 Set this parameter to 'true' if you are dealing with
+                 multiple strains. (default: false)
+
+                 Currently mixtures is set to false
+
+    --size       ARDaP can optionally down-sample your read data to
+                 run through the pipeline quicker. Please set to 0 to skip this step
+                 (default: 1000000)
+
+                 Currently you are using 1000000
+
+                 Currently executor is set to local
+
+    --fast       **Experimental**. Future implementation to only look at regions that
+                 may cause AMR rather than the whole genome. I expect this may impact on the
+                 performance of predicting structural variants.
+
+                 Currently fast is set to true
+
+    --gwas       **Experimental**. If you have a database of GWAS co-ordinates
+                 ARDaP can interrogate SNPs and indels across the entire genome
+                 to identify novel mutations likely contributing to an antibiotic
+                 resistance phenotype. For more information about this feature,
+                 please contact the developers.
+
+                 Currently gwas is set to false
+
+
+==================================================================
+==================================================================
+
+Oct-18 23:02:18.508 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:index` matches labels `index` for process with name INDEX_REFERENCE
+Oct-18 23:02:18.517 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 23:02:18.518 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 23:02:18.523 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Oct-18 23:02:18.528 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=20; memory=56 GB; capacity=4; pollInterval=100ms; dumpInterval=5m
+Oct-18 23:02:18.530 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Oct-18 23:02:18.556 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'INDEX_REFERENCE': maxForks=0; fair=false; array=0
+Oct-18 23:02:18.622 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:trimmomatic` matches labels `trimmomatic` for process with name TRIMMOMATIC
+Oct-18 23:02:18.627 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 23:02:18.628 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 23:02:18.629 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'TRIMMOMATIC': maxForks=0; fair=false; array=0
+Oct-18 23:02:18.651 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:ardap_default` matches labels `ardap_default` for process with name DOWNSAMPLE
+Oct-18 23:02:18.658 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 23:02:18.658 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 23:02:18.661 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'DOWNSAMPLE': maxForks=0; fair=false; array=0
+Oct-18 23:02:18.694 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:alignment` matches labels `alignment` for process with name REFERENCE_ALIGNMENT
+Oct-18 23:02:18.697 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 23:02:18.697 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 23:02:18.698 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'REFERENCE_ALIGNMENT': maxForks=0; fair=false; array=0
+Oct-18 23:02:18.706 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:markduplicates` matches labels `markduplicates` for process with name MARK_DUPLICATES
+Oct-18 23:02:18.708 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 23:02:18.709 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 23:02:18.709 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'MARK_DUPLICATES': maxForks=0; fair=false; array=0
+Oct-18 23:02:18.719 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:gatk_haplo` matches labels `gatk_haplo` for process with name GATK_HAPLOTYPE_CALLER
+Oct-18 23:02:18.723 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 23:02:18.723 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 23:02:18.724 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'GATK_HAPLOTYPE_CALLER': maxForks=0; fair=false; array=0
+Oct-18 23:02:18.731 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:gatk` matches labels `gatk` for process with name GATK_GENOTYPE_GVCFS
+Oct-18 23:02:18.733 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 23:02:18.733 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 23:02:18.734 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'GATK_GENOTYPE_GVCFS': maxForks=0; fair=false; array=0
+Oct-18 23:02:18.742 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:gatk` matches labels `gatk` for process with name VARIANT_FILTER
+Oct-18 23:02:18.745 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 23:02:18.746 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 23:02:18.747 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'VARIANT_FILTER': maxForks=0; fair=false; array=0
+Oct-18 23:02:18.756 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:ardap_default` matches labels `ardap_default` for process with name DELLY
+Oct-18 23:02:18.758 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 23:02:18.759 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 23:02:18.760 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'DELLY': maxForks=0; fair=false; array=0
+Oct-18 23:02:18.767 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:pindel` matches labels `pindel` for process with name PINDEL
+Oct-18 23:02:18.769 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 23:02:18.769 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 23:02:18.770 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'PINDEL': maxForks=0; fair=false; array=0
+Oct-18 23:02:18.779 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:snpeff` matches labels `snpeff` for process with name SNPEFF_ANNOTATION
+Oct-18 23:02:18.780 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 23:02:18.781 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 23:02:18.782 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SNPEFF_ANNOTATION': maxForks=0; fair=false; array=0
+Oct-18 23:02:18.798 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:genomic_queries` matches labels `genomic_queries` for process with name SQL_QUERIES_SNP_INDEL
+Oct-18 23:02:18.805 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 23:02:18.805 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 23:02:18.808 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SQL_QUERIES_SNP_INDEL': maxForks=0; fair=false; array=0
+Oct-18 23:02:18.824 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:genomic_queries` matches labels `genomic_queries` for process with name SQL_QUERIES_DEL_DUP
+Oct-18 23:02:18.828 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 23:02:18.828 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 23:02:18.830 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SQL_QUERIES_DEL_DUP': maxForks=0; fair=false; array=0
+Oct-18 23:02:18.852 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:report` matches labels `report` for process with name ABRESISTANCE_REPORT
+Oct-18 23:02:18.856 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 23:02:18.857 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 23:02:18.858 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ABRESISTANCE_REPORT': maxForks=0; fair=false; array=0
+Oct-18 23:02:18.874 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 23:02:18.875 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 23:02:18.876 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'HTML_REPORT': maxForks=0; fair=false; array=0
+Oct-18 23:02:18.883 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: VARIANT_FILTER, SQL_QUERIES_DEL_DUP, PHYLOGENY, HTML_REPORT, SNPEFF_ANNOTATION, ABRESISTANCE_REPORT, DELLY, READ_SYNTHESIS, DOWNSAMPLE, TRIMMOMATIC, REFERENCE_ALIGNMENT, SNP_MATRIX, MERGE_VCF, PINDEL, INDEX_REFERENCE, SQL_QUERIES_SNP_INDEL, GATK_HAPLOTYPE_CALLER, GATK_GENOTYPE_GVCFS, MARK_DUPLICATES
+Oct-18 23:02:18.890 [main] DEBUG nextflow.Session - Igniting dataflow network (18)
+Oct-18 23:02:18.898 [PathVisitor-1] DEBUG nextflow.file.PathVisitor - files for syntax: glob; folder: /home/phemarajata/Downloads/Burk_Genome_for_BI_Feb_2025/Fastq_250127/; pattern: *_R{1,2}*.fastq.gz; options: [:]
+Oct-18 23:02:18.900 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > INDEX_REFERENCE
+Oct-18 23:02:18.901 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > TRIMMOMATIC
+Oct-18 23:02:18.902 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > DOWNSAMPLE
+Oct-18 23:02:18.902 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > REFERENCE_ALIGNMENT
+Oct-18 23:02:18.902 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > MARK_DUPLICATES
+Oct-18 23:02:18.902 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > GATK_HAPLOTYPE_CALLER
+Oct-18 23:02:18.903 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > GATK_GENOTYPE_GVCFS
+Oct-18 23:02:18.903 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > VARIANT_FILTER
+Oct-18 23:02:18.904 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > DELLY
+Oct-18 23:02:18.904 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > PINDEL
+Oct-18 23:02:18.904 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SNPEFF_ANNOTATION
+Oct-18 23:02:18.904 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SQL_QUERIES_SNP_INDEL
+Oct-18 23:02:18.905 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SQL_QUERIES_DEL_DUP
+Oct-18 23:02:18.905 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ABRESISTANCE_REPORT
+Oct-18 23:02:18.905 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > HTML_REPORT
+Oct-18 23:02:18.906 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_8b038b2a52604d1f: /home/phemarajata/ARDaP-DSL2/modules/local/downsample.nf
+  Script_57090a156f8df069: /home/phemarajata/ARDaP-DSL2/modules/local/html_report.nf
+  Script_8c9571d7b05a68f5: /home/phemarajata/ARDaP-DSL2/modules/local/merge_vcf.nf
+  Script_d4b9693bf7e34680: /home/phemarajata/ARDaP-DSL2/main.nf
+  Script_f3587602a519d69c: /home/phemarajata/ARDaP-DSL2/modules/local/sql_queries_snp_indel.nf
+  Script_43eb1a0e87038fb7: /home/phemarajata/ARDaP-DSL2/modules/local/abresistance_report.nf
+  Script_c71b359029d82f2b: /home/phemarajata/ARDaP-DSL2/modules/local/trimmomatic.nf
+  Script_dc91639c96d1b37c: /home/phemarajata/ARDaP-DSL2/modules/local/sql_queries_del_dup.nf
+  Script_5af403be0a3ec29d: /home/phemarajata/ARDaP-DSL2/modules/local/pindel.nf
+  Script_ca25c9a6b054aad4: /home/phemarajata/ARDaP-DSL2/modules/local/read_synthesis.nf
+  Script_eda496b6e7771258: /home/phemarajata/ARDaP-DSL2/modules/local/variant_filter.nf
+  Script_072c22c79b2ea761: /home/phemarajata/ARDaP-DSL2/modules/local/gatk_genotypegvcfs.nf
+  Script_fdfe81f049fdaad4: /home/phemarajata/ARDaP-DSL2/modules/local/index_reference.nf
+  Script_b2f83a38eccdc709: /home/phemarajata/ARDaP-DSL2/modules/local/delly.nf
+  Script_4b7d79dc70eb3e11: /home/phemarajata/ARDaP-DSL2/modules/local/snpeff_annotation.nf
+  Script_a115b454acf5bf07: /home/phemarajata/ARDaP-DSL2/modules/local/phylogeny.nf
+  Script_bd509285b2fee8c4: /home/phemarajata/ARDaP-DSL2/modules/local/mark_duplicates.nf
+  Script_76196d826d3038ec: /home/phemarajata/ARDaP-DSL2/modules/local/snp_matrix.nf
+  Script_169373e55c4e2cda: /home/phemarajata/ARDaP-DSL2/modules/local/reference_alignment.nf
+  Script_1f36c9f40069fc08: /home/phemarajata/ARDaP-DSL2/modules/local/gatk_haplotypecaller.nf
+Oct-18 23:02:18.907 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Oct-18 23:02:18.907 [main] DEBUG nextflow.Session - Session await
+Oct-18 23:02:19.086 [Actor Thread 14] INFO  nextflow.processor.TaskProcessor - [03/e1decf] Cached process > TRIMMOMATIC (IP-0133-9_S3_L001)
+Oct-18 23:02:19.086 [Actor Thread 15] INFO  nextflow.processor.TaskProcessor - [13/e191e0] Cached process > TRIMMOMATIC (IP-0134-7_S4_L001)
+Oct-18 23:02:19.086 [Actor Thread 22] INFO  nextflow.processor.TaskProcessor - [37/6329fd] Cached process > TRIMMOMATIC (Undetermined_S0_L001)
+Oct-18 23:02:19.086 [Actor Thread 13] INFO  nextflow.processor.TaskProcessor - [91/63decb] Cached process > TRIMMOMATIC (IP-0131-3_S1_L001)
+Oct-18 23:02:19.086 [Actor Thread 18] INFO  nextflow.processor.TaskProcessor - [b1/1267aa] Cached process > TRIMMOMATIC (IP-0136-2_S6_L001)
+Oct-18 23:02:19.086 [Actor Thread 23] INFO  nextflow.processor.TaskProcessor - [8e/726010] Cached process > TRIMMOMATIC (IP-0135-4_S5_L001)
+Oct-18 23:02:19.086 [Actor Thread 21] INFO  nextflow.processor.TaskProcessor - [2b/6c2152] Cached process > TRIMMOMATIC (IP-0138-8_S8_L001)
+Oct-18 23:02:19.086 [Actor Thread 17] INFO  nextflow.processor.TaskProcessor - [d5/8068cf] Cached process > TRIMMOMATIC (IP-0132-1_S2_L001)
+Oct-18 23:02:19.093 [Actor Thread 20] INFO  nextflow.processor.TaskProcessor - [69/00fa83] Cached process > INDEX_REFERENCE
+Oct-18 23:02:19.129 [Actor Thread 8] INFO  nextflow.processor.TaskProcessor - [b6/60dca6] Cached process > DOWNSAMPLE (IP-0131-3_S1_L001)
+Oct-18 23:02:19.129 [Actor Thread 22] INFO  nextflow.processor.TaskProcessor - [bc/485f61] Cached process > DOWNSAMPLE (Undetermined_S0_L001)
+Oct-18 23:02:19.129 [Actor Thread 20] INFO  nextflow.processor.TaskProcessor - [a4/c5c758] Cached process > DOWNSAMPLE (IP-0132-1_S2_L001)
+Oct-18 23:02:19.130 [Actor Thread 16] INFO  nextflow.processor.TaskProcessor - [18/651603] Cached process > DOWNSAMPLE (IP-0134-7_S4_L001)
+Oct-18 23:02:19.130 [Actor Thread 23] INFO  nextflow.processor.TaskProcessor - [00/618311] Cached process > DOWNSAMPLE (IP-0135-4_S5_L001)
+Oct-18 23:02:19.131 [Actor Thread 7] INFO  nextflow.processor.TaskProcessor - [f8/141fa8] Cached process > DOWNSAMPLE (IP-0138-8_S8_L001)
+Oct-18 23:02:19.131 [Actor Thread 9] INFO  nextflow.processor.TaskProcessor - [e3/3cb2f9] Cached process > DOWNSAMPLE (IP-0136-2_S6_L001)
+Oct-18 23:02:19.130 [Actor Thread 14] INFO  nextflow.processor.TaskProcessor - [ab/5bda7b] Cached process > DOWNSAMPLE (IP-0133-9_S3_L001)
+Oct-18 23:02:19.146 [Actor Thread 6] WARN  nextflow.script.ScriptBinding - Access to undefined parameter `snpeff` -- Initialise it to a default value eg. `params.snpeff = some_value`
+Oct-18 23:02:19.175 [Actor Thread 18] INFO  nextflow.processor.TaskProcessor - [33/d0238c] Cached process > REFERENCE_ALIGNMENT (IP-0131-3_S1_L001)
+Oct-18 23:02:19.175 [Actor Thread 13] INFO  nextflow.processor.TaskProcessor - [dc/d45997] Cached process > REFERENCE_ALIGNMENT (IP-0134-7_S4_L001)
+Oct-18 23:02:19.176 [Actor Thread 19] INFO  nextflow.processor.TaskProcessor - [4e/0ddd94] Cached process > REFERENCE_ALIGNMENT (IP-0135-4_S5_L001)
+Oct-18 23:02:19.177 [Actor Thread 12] INFO  nextflow.processor.TaskProcessor - [3f/e908ef] Cached process > REFERENCE_ALIGNMENT (Undetermined_S0_L001)
+Oct-18 23:02:19.177 [Actor Thread 17] INFO  nextflow.processor.TaskProcessor - [df/40f7dc] Cached process > REFERENCE_ALIGNMENT (IP-0132-1_S2_L001)
+Oct-18 23:02:19.178 [Actor Thread 21] INFO  nextflow.processor.TaskProcessor - [e7/d1b0d5] Cached process > REFERENCE_ALIGNMENT (IP-0138-8_S8_L001)
+Oct-18 23:02:19.179 [Actor Thread 15] INFO  nextflow.processor.TaskProcessor - [ce/ed5bc7] Cached process > REFERENCE_ALIGNMENT (IP-0133-9_S3_L001)
+Oct-18 23:02:19.188 [Actor Thread 6] INFO  nextflow.processor.TaskProcessor - [f8/4ca02f] Cached process > REFERENCE_ALIGNMENT (IP-0136-2_S6_L001)
+Oct-18 23:02:19.193 [Actor Thread 20] INFO  nextflow.processor.TaskProcessor - [97/a53581] Cached process > MARK_DUPLICATES (IP-0132-1_S2_L001)
+Oct-18 23:02:19.193 [Actor Thread 6] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=66; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Oct-18 23:02:19.193 [Actor Thread 23] INFO  nextflow.processor.TaskProcessor - [ff/6af187] Cached process > MARK_DUPLICATES (Undetermined_S0_L001)
+Oct-18 23:02:19.193 [Actor Thread 22] INFO  nextflow.processor.TaskProcessor - [2c/56164d] Cached process > MARK_DUPLICATES (IP-0135-4_S5_L001)
+Oct-18 23:02:19.193 [Actor Thread 11] INFO  nextflow.processor.TaskProcessor - [cf/828749] Cached process > MARK_DUPLICATES (IP-0138-8_S8_L001)
+Oct-18 23:02:19.193 [Actor Thread 14] INFO  nextflow.processor.TaskProcessor - [11/564426] Cached process > MARK_DUPLICATES (IP-0133-9_S3_L001)
+Oct-18 23:02:19.194 [Actor Thread 9] INFO  nextflow.processor.TaskProcessor - [17/40d068] Cached process > MARK_DUPLICATES (IP-0131-3_S1_L001)
+Oct-18 23:02:19.196 [Actor Thread 16] INFO  nextflow.processor.TaskProcessor - [2e/1c9057] Cached process > MARK_DUPLICATES (IP-0134-7_S4_L001)
+Oct-18 23:02:19.208 [Actor Thread 4] INFO  nextflow.processor.TaskProcessor - [b4/ddc2f3] Cached process > MARK_DUPLICATES (IP-0136-2_S6_L001)
+Oct-18 23:02:19.216 [Actor Thread 13] INFO  nextflow.processor.TaskProcessor - [b5/0ab9b0] Cached process > DELLY (IP-0131-3_S1_L001)
+Oct-18 23:02:19.219 [Actor Thread 15] INFO  nextflow.processor.TaskProcessor - [95/0d18e0] Cached process > GATK_HAPLOTYPE_CALLER (IP-0133-9_S3_L001)
+Oct-18 23:02:19.219 [Actor Thread 6] INFO  nextflow.processor.TaskProcessor - [28/7f4a39] Cached process > DELLY (IP-0133-9_S3_L001)
+Oct-18 23:02:19.220 [Actor Thread 21] INFO  nextflow.processor.TaskProcessor - [5b/4c9d83] Cached process > GATK_HAPLOTYPE_CALLER (IP-0134-7_S4_L001)
+Oct-18 23:02:19.221 [Actor Thread 17] INFO  nextflow.processor.TaskProcessor - [8b/d62e86] Cached process > GATK_HAPLOTYPE_CALLER (IP-0132-1_S2_L001)
+Oct-18 23:02:19.221 [Actor Thread 1] INFO  nextflow.processor.TaskProcessor - [4f/6b20bb] Cached process > DELLY (IP-0134-7_S4_L001)
+Oct-18 23:02:19.226 [Actor Thread 5] INFO  nextflow.processor.TaskProcessor - [e3/524d2d] Cached process > DELLY (IP-0132-1_S2_L001)
+Oct-18 23:02:19.225 [Actor Thread 26] INFO  nextflow.processor.TaskProcessor - [6a/011b3b] Cached process > GATK_HAPLOTYPE_CALLER (IP-0135-4_S5_L001)
+Oct-18 23:02:19.231 [Actor Thread 29] INFO  nextflow.processor.TaskProcessor - [d7/b58549] Cached process > DELLY (IP-0138-8_S8_L001)
+Oct-18 23:02:19.231 [Actor Thread 22] INFO  nextflow.processor.TaskProcessor - [21/773701] Cached process > DELLY (IP-0136-2_S6_L001)
+Oct-18 23:02:19.231 [Actor Thread 28] INFO  nextflow.processor.TaskProcessor - [b7/3ca5db] Cached process > DELLY (Undetermined_S0_L001)
+Oct-18 23:02:19.231 [Actor Thread 19] INFO  nextflow.processor.TaskProcessor - [06/3391d1] Cached process > DELLY (IP-0135-4_S5_L001)
+Oct-18 23:02:19.235 [Actor Thread 23] INFO  nextflow.processor.TaskProcessor - [bc/6f9f65] Cached process > GATK_HAPLOTYPE_CALLER (Undetermined_S0_L001)
+Oct-18 23:02:19.236 [Actor Thread 14] INFO  nextflow.processor.TaskProcessor - [ee/94336a] Cached process > GATK_HAPLOTYPE_CALLER (IP-0131-3_S1_L001)
+Oct-18 23:02:19.240 [Actor Thread 12] INFO  nextflow.processor.TaskProcessor - [c8/2096b4] Cached process > PINDEL (IP-0131-3_S1_L001)
+Oct-18 23:02:19.243 [Actor Thread 3] INFO  nextflow.processor.TaskProcessor - [cf/5867fd] Cached process > PINDEL (IP-0133-9_S3_L001)
+Oct-18 23:02:19.243 [Actor Thread 18] INFO  nextflow.processor.TaskProcessor - [3c/a92fb4] Cached process > PINDEL (IP-0132-1_S2_L001)
+Oct-18 23:02:19.246 [Actor Thread 10] INFO  nextflow.processor.TaskProcessor - [85/71b79b] Cached process > PINDEL (IP-0135-4_S5_L001)
+Oct-18 23:02:19.247 [Actor Thread 9] INFO  nextflow.processor.TaskProcessor - [23/9e32f8] Cached process > GATK_HAPLOTYPE_CALLER (IP-0138-8_S8_L001)
+Oct-18 23:02:19.247 [Actor Thread 25] INFO  nextflow.processor.TaskProcessor - [3f/96a55c] Cached process > PINDEL (Undetermined_S0_L001)
+Oct-18 23:02:19.247 [Actor Thread 2] INFO  nextflow.processor.TaskProcessor - [02/bd3096] Cached process > PINDEL (IP-0134-7_S4_L001)
+Oct-18 23:02:19.251 [Actor Thread 20] INFO  nextflow.processor.TaskProcessor - [cf/89d617] Cached process > PINDEL (IP-0136-2_S6_L001)
+Oct-18 23:02:19.252 [Actor Thread 7] INFO  nextflow.processor.TaskProcessor - [a5/9dce4e] Cached process > PINDEL (IP-0138-8_S8_L001)
+Oct-18 23:02:19.258 [Actor Thread 21] INFO  nextflow.processor.TaskProcessor - [55/bf3cbc] Cached process > SQL_QUERIES_DEL_DUP (IP-0132-1_S2_L001)
+Oct-18 23:02:19.260 [Actor Thread 27] INFO  nextflow.processor.TaskProcessor - [97/337a49] Cached process > GATK_GENOTYPE_GVCFS (IP-0133-9_S3_L001)
+Oct-18 23:02:19.262 [Actor Thread 29] INFO  nextflow.processor.TaskProcessor - [4e/fb276f] Cached process > SQL_QUERIES_DEL_DUP (IP-0138-8_S8_L001)
+Oct-18 23:02:19.262 [Actor Thread 32] INFO  nextflow.processor.TaskProcessor - [dc/d8e997] Cached process > SQL_QUERIES_DEL_DUP (IP-0133-9_S3_L001)
+Oct-18 23:02:19.262 [Actor Thread 1] INFO  nextflow.processor.TaskProcessor - [db/a85bd0] Cached process > SQL_QUERIES_DEL_DUP (IP-0134-7_S4_L001)
+Oct-18 23:02:19.265 [Actor Thread 6] INFO  nextflow.processor.TaskProcessor - [ae/51ec82] Cached process > GATK_GENOTYPE_GVCFS (IP-0131-3_S1_L001)
+Oct-18 23:02:19.265 [Actor Thread 33] INFO  nextflow.processor.TaskProcessor - [df/a30c5a] Cached process > GATK_GENOTYPE_GVCFS (IP-0132-1_S2_L001)
+Oct-18 23:02:19.268 [Actor Thread 28] INFO  nextflow.processor.TaskProcessor - [03/2e605f] Cached process > SQL_QUERIES_DEL_DUP (Undetermined_S0_L001)
+Oct-18 23:02:19.281 [Actor Thread 17] INFO  nextflow.processor.TaskProcessor - [78/a250b3] Cached process > SQL_QUERIES_DEL_DUP (IP-0136-2_S6_L001)
+Oct-18 23:02:19.281 [Actor Thread 24] INFO  nextflow.processor.TaskProcessor - [4d/368a87] Cached process > SQL_QUERIES_DEL_DUP (IP-0131-3_S1_L001)
+Oct-18 23:02:19.282 [Actor Thread 13] INFO  nextflow.processor.TaskProcessor - [08/6391cf] Cached process > GATK_GENOTYPE_GVCFS (IP-0134-7_S4_L001)
+Oct-18 23:02:19.284 [Actor Thread 19] INFO  nextflow.processor.TaskProcessor - [f9/103f1f] Cached process > SQL_QUERIES_DEL_DUP (IP-0135-4_S5_L001)
+Oct-18 23:02:19.286 [Actor Thread 14] INFO  nextflow.processor.TaskProcessor - [18/92fa3b] Cached process > GATK_GENOTYPE_GVCFS (Undetermined_S0_L001)
+Oct-18 23:02:19.283 [Actor Thread 34] INFO  nextflow.processor.TaskProcessor - [c2/20def3] Cached process > GATK_GENOTYPE_GVCFS (IP-0135-4_S5_L001)
+Oct-18 23:02:19.287 [Actor Thread 33] INFO  nextflow.processor.TaskProcessor - [3b/c28fbf] Cached process > VARIANT_FILTER (IP-0132-1_S2_L001)
+Oct-18 23:02:19.287 [Actor Thread 7] INFO  nextflow.processor.TaskProcessor - [12/23fec8] Cached process > GATK_GENOTYPE_GVCFS (IP-0138-8_S8_L001)
+Oct-18 23:02:19.288 [Actor Thread 16] INFO  nextflow.processor.TaskProcessor - [97/6b6ee1] Cached process > GATK_HAPLOTYPE_CALLER (IP-0136-2_S6_L001)
+Oct-18 23:02:19.289 [Actor Thread 28] INFO  nextflow.processor.TaskProcessor - [71/da7582] Cached process > VARIANT_FILTER (IP-0131-3_S1_L001)
+Oct-18 23:02:19.290 [Actor Thread 15] INFO  nextflow.processor.TaskProcessor - [2c/c37f84] Cached process > VARIANT_FILTER (IP-0133-9_S3_L001)
+Oct-18 23:02:19.307 [Actor Thread 14] INFO  nextflow.processor.TaskProcessor - [ca/f13eca] Cached process > VARIANT_FILTER (Undetermined_S0_L001)
+Oct-18 23:02:19.308 [Actor Thread 8] INFO  nextflow.processor.TaskProcessor - [d9/660949] Cached process > VARIANT_FILTER (IP-0134-7_S4_L001)
+Oct-18 23:02:19.312 [Actor Thread 16] INFO  nextflow.processor.TaskProcessor - [07/73e45a] Cached process > GATK_GENOTYPE_GVCFS (IP-0136-2_S6_L001)
+Oct-18 23:02:19.316 [Actor Thread 33] INFO  nextflow.processor.TaskProcessor - [0b/b3726f] Cached process > VARIANT_FILTER (IP-0138-8_S8_L001)
+Oct-18 23:02:19.315 [Actor Thread 34] INFO  nextflow.processor.TaskProcessor - [d8/d269f1] Cached process > VARIANT_FILTER (IP-0135-4_S5_L001)
+Oct-18 23:02:19.337 [Actor Thread 11] INFO  nextflow.processor.TaskProcessor - [b8/6bb7d6] Cached process > VARIANT_FILTER (IP-0136-2_S6_L001)
+Oct-18 23:02:19.338 [Actor Thread 24] INFO  nextflow.processor.TaskProcessor - [95/f42f9d] Cached process > SNPEFF_ANNOTATION (IP-0132-1_S2_L001)
+Oct-18 23:02:19.337 [Actor Thread 16] INFO  nextflow.processor.TaskProcessor - [aa/4c9817] Cached process > SNPEFF_ANNOTATION (IP-0135-4_S5_L001)
+Oct-18 23:02:19.339 [Actor Thread 14] INFO  nextflow.processor.TaskProcessor - [98/975825] Cached process > SNPEFF_ANNOTATION (IP-0138-8_S8_L001)
+Oct-18 23:02:19.340 [Actor Thread 19] INFO  nextflow.processor.TaskProcessor - [04/cbb394] Cached process > SNPEFF_ANNOTATION (Undetermined_S0_L001)
+Oct-18 23:02:19.340 [Actor Thread 28] INFO  nextflow.processor.TaskProcessor - [1c/ff43fb] Cached process > SNPEFF_ANNOTATION (IP-0131-3_S1_L001)
+Oct-18 23:02:19.343 [Actor Thread 8] INFO  nextflow.processor.TaskProcessor - [67/bad450] Cached process > SNPEFF_ANNOTATION (IP-0134-7_S4_L001)
+Oct-18 23:02:19.346 [Actor Thread 29] INFO  nextflow.processor.TaskProcessor - [7a/be937a] Cached process > SNPEFF_ANNOTATION (IP-0133-9_S3_L001)
+Oct-18 23:02:19.361 [Actor Thread 22] INFO  nextflow.processor.TaskProcessor - [1d/0560d3] Cached process > SNPEFF_ANNOTATION (IP-0136-2_S6_L001)
+Oct-18 23:02:19.377 [Actor Thread 28] INFO  nextflow.processor.TaskProcessor - [2d/61e3ce] Cached process > SQL_QUERIES_SNP_INDEL (IP-0136-2_S6_L001)
+Oct-18 23:02:19.379 [Actor Thread 30] INFO  nextflow.processor.TaskProcessor - [cc/c0ba33] Cached process > SQL_QUERIES_SNP_INDEL (IP-0134-7_S4_L001)
+Oct-18 23:02:19.382 [Actor Thread 16] INFO  nextflow.processor.TaskProcessor - [93/1c93c5] Cached process > SQL_QUERIES_SNP_INDEL (IP-0135-4_S5_L001)
+Oct-18 23:02:19.383 [Actor Thread 8] INFO  nextflow.processor.TaskProcessor - [cc/a0d97e] Cached process > SQL_QUERIES_SNP_INDEL (Undetermined_S0_L001)
+Oct-18 23:02:19.385 [Actor Thread 29] INFO  nextflow.processor.TaskProcessor - [9c/d72972] Cached process > SQL_QUERIES_SNP_INDEL (IP-0133-9_S3_L001)
+Oct-18 23:02:19.386 [Actor Thread 34] INFO  nextflow.processor.TaskProcessor - [a4/24375f] Cached process > SQL_QUERIES_SNP_INDEL (IP-0131-3_S1_L001)
+Oct-18 23:02:19.389 [Actor Thread 33] INFO  nextflow.processor.TaskProcessor - [bf/6c7e51] Cached process > SQL_QUERIES_SNP_INDEL (IP-0132-1_S2_L001)
+Oct-18 23:02:19.389 [Actor Thread 15] INFO  nextflow.processor.TaskProcessor - [4a/e1e667] Cached process > SQL_QUERIES_SNP_INDEL (IP-0138-8_S8_L001)
+Oct-18 23:02:19.442 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-18 23:02:19.445 [Task submitter] INFO  nextflow.Session - [15/98473d] Submitted process > ABRESISTANCE_REPORT (IP-0135-4_S5_L001)
+Oct-18 23:02:19.472 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-18 23:02:19.473 [Task submitter] INFO  nextflow.Session - [a7/c5901d] Submitted process > ABRESISTANCE_REPORT (IP-0136-2_S6_L001)
+Oct-18 23:02:19.486 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-18 23:02:19.487 [Task submitter] INFO  nextflow.Session - [02/4e4b85] Submitted process > ABRESISTANCE_REPORT (IP-0133-9_S3_L001)
+Oct-18 23:02:19.506 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-18 23:02:19.507 [Task submitter] INFO  nextflow.Session - [c3/6b5917] Submitted process > ABRESISTANCE_REPORT (IP-0138-8_S8_L001)
+Oct-18 23:02:19.798 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 87; name: ABRESISTANCE_REPORT (IP-0135-4_S5_L001); status: COMPLETED; exit: 0; error: -; workDir: /home/phemarajata/ARDaP-DSL2/work/15/98473d7dd656dcfe2b94d0bf6eb7f4]
+Oct-18 23:02:19.811 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=66; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Oct-18 23:02:19.814 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-18 23:02:19.814 [Task submitter] INFO  nextflow.Session - [d5/96b55d] Submitted process > ABRESISTANCE_REPORT (IP-0134-7_S4_L001)
+Oct-18 23:02:19.817 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 81; name: ABRESISTANCE_REPORT (IP-0136-2_S6_L001); status: COMPLETED; exit: 0; error: -; workDir: /home/phemarajata/ARDaP-DSL2/work/a7/c5901de3ea8442888ed25e95a0e651]
+Oct-18 23:02:19.821 [TaskFinalizer-2] DEBUG nextflow.processor.TaskProcessor - Process `ABRESISTANCE_REPORT (IP-0136-2_S6_L001)` is unable to find [UnixPath]: `/home/phemarajata/ARDaP-DSL2/work/a7/c5901de3ea8442888ed25e95a0e651/IP-0136-2_S6_L001_AbR_output.final.txt` (pattern: `IP-0136-2_S6_L001_AbR_output.final.txt`)
+Oct-18 23:02:19.821 [TaskFinalizer-1] DEBUG nextflow.processor.TaskProcessor - Process `ABRESISTANCE_REPORT (IP-0135-4_S5_L001)` is unable to find [UnixPath]: `/home/phemarajata/ARDaP-DSL2/work/15/98473d7dd656dcfe2b94d0bf6eb7f4/IP-0135-4_S5_L001_AbR_output.final.txt` (pattern: `IP-0135-4_S5_L001_AbR_output.final.txt`)
+Oct-18 23:02:19.822 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-18 23:02:19.822 [Task submitter] INFO  nextflow.Session - [f7/9a8958] Submitted process > ABRESISTANCE_REPORT (IP-0132-1_S2_L001)
+Oct-18 23:02:19.825 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 77; name: ABRESISTANCE_REPORT (IP-0133-9_S3_L001); status: COMPLETED; exit: 0; error: -; workDir: /home/phemarajata/ARDaP-DSL2/work/02/4e4b85fa064a6f64148e4b54cc59a6]
+Oct-18 23:02:19.826 [TaskFinalizer-3] DEBUG nextflow.processor.TaskProcessor - Process `ABRESISTANCE_REPORT (IP-0133-9_S3_L001)` is unable to find [UnixPath]: `/home/phemarajata/ARDaP-DSL2/work/02/4e4b85fa064a6f64148e4b54cc59a6/IP-0133-9_S3_L001_AbR_output.final.txt` (pattern: `IP-0133-9_S3_L001_AbR_output.final.txt`)
+Oct-18 23:02:19.830 [TaskFinalizer-3] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=ABRESISTANCE_REPORT (IP-0133-9_S3_L001); work-dir=/home/phemarajata/ARDaP-DSL2/work/02/4e4b85fa064a6f64148e4b54cc59a6
+  error [nextflow.exception.MissingFileException]: Missing output file(s) `IP-0133-9_S3_L001_AbR_output.final.txt` expected by process `ABRESISTANCE_REPORT (IP-0133-9_S3_L001)`
+Oct-18 23:02:19.830 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-18 23:02:19.831 [Task submitter] INFO  nextflow.Session - [5e/28f6b3] Submitted process > ABRESISTANCE_REPORT (Undetermined_S0_L001)
+Oct-18 23:02:19.842 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 75; name: ABRESISTANCE_REPORT (IP-0138-8_S8_L001); status: COMPLETED; exit: 0; error: -; workDir: /home/phemarajata/ARDaP-DSL2/work/c3/6b59172b6dba6d9dcaf7d3012359f9]
+Oct-18 23:02:19.843 [TaskFinalizer-4] DEBUG nextflow.processor.TaskProcessor - Process `ABRESISTANCE_REPORT (IP-0138-8_S8_L001)` is unable to find [UnixPath]: `/home/phemarajata/ARDaP-DSL2/work/c3/6b59172b6dba6d9dcaf7d3012359f9/IP-0138-8_S8_L001_AbR_output.final.txt` (pattern: `IP-0138-8_S8_L001_AbR_output.final.txt`)
+Oct-18 23:02:19.846 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-18 23:02:19.846 [Task submitter] INFO  nextflow.Session - [88/07b905] Submitted process > ABRESISTANCE_REPORT (IP-0131-3_S1_L001)
+Oct-18 23:02:19.886 [TaskFinalizer-3] ERROR nextflow.processor.TaskProcessor - Error executing process > 'ABRESISTANCE_REPORT (IP-0133-9_S3_L001)'
+
+Caused by:
+  Missing output file(s) `IP-0133-9_S3_L001_AbR_output.final.txt` expected by process `ABRESISTANCE_REPORT (IP-0133-9_S3_L001)`
+
+
+Command executed:
+
+  # Debug: Show what files we received
+  echo "Received files:"
+  ls -la
+  
+  # Create files with exact names the script expects
+  cp IP-0133-9_S3_L001_del_dup_results.txt IP-0133-9_S3_L001.AbR_output_snp_indel.txt
+  
+  # Only copy resfinder if it's a different name
+  if [ "IP-0135-4_S5_L001_resfinder.txt" != "IP-0133-9_S3_L001_resfinder.txt" ]; then
+      cp IP-0135-4_S5_L001_resfinder.txt IP-0133-9_S3_L001_resfinder.txt
+  fi
+  
+  # Create empty del_dup file since we're not using structural variants
+  echo "" > IP-0133-9_S3_L001.AbR_output_del_dup.txt
+  
+  # Debug: Show what we created
+  echo "Created files:"
+  ls -la *.txt
+  
+  bash /home/phemarajata/ARDaP-DSL2/bin/AbR_reports.sh \
+      IP-0133-9_S3_L001 \
+      /home/phemarajata/ARDaP-DSL2/Databases/Burkholderia_pseudomallei_k96243/Burkholderia_pseudomallei_k96243.db
+
+Command exit status:
+  0
+
+Command output:
+  -rw-rw-r-- 1 phemarajata phemarajata    1 Oct 18 23:02 IP-0133-9_S3_L001.AbR_output_del_dup.txt
+  -rw-rw-r-- 1 phemarajata phemarajata   74 Oct 18 23:02 IP-0133-9_S3_L001.AbR_output_snp_indel.txt
+  lrwxrwxrwx 1 phemarajata phemarajata  105 Oct 18 23:02 IP-0133-9_S3_L001_del_dup_results.txt -> /home/phemarajata/ARDaP-DSL2/work/dc/d8e9973f3de40e1b24486786a55d48/IP-0133-9_S3_L001_del_dup_results.txt
+  -rw-rw-r-- 1 phemarajata phemarajata 5178 Oct 18 23:02 IP-0133-9_S3_L001_resfinder.txt
+  lrwxrwxrwx 1 phemarajata phemarajata   99 Oct 18 23:02 IP-0135-4_S5_L001_resfinder.txt -> /home/phemarajata/ARDaP-DSL2/work/4e/0ddd94ad2aa63818e07decabb968bb/IP-0135-4_S5_L001_resfinder.txt
+  Importing isolate data
+  Looking for specific strain in the metadata file
+  IP-0133-9_S3_L001,BARCODE3,Patient,Three,1990-01-03,Lab,Sputum,SAMPLE3,2024-01-01,Clinical,MGIT,Lab,2024-01-02,Sample 3,Burkholderia pseudomallei,Dr. Test,contact@lab.com,1,Type1
+  Found strain information
+  Antibiotic = Meropenem
+  abbrev=MEM
+  Strain appears sensitive to Meropenem
+  Antibiotic = Ceftazidime
+  abbrev=CAZ
+  Strain appears sensitive to Ceftazidime
+  Antibiotic = Gentamicin
+  abbrev=GEN
+  Strain appears sensitive to Gentamicin
+  Antibiotic = Imipenem
+  abbrev=IPM
+  Strain appears sensitive to Imipenem
+  Antibiotic = Trimethoprim/sulfamethoxazole
+  abbrev=SXT
+  Strain appears sensitive to Trimethoprim/sulfamethoxazole
+  Antibiotic = Amoxicillin/Clavulanic acid
+  abbrev=AMC
+  Strain appears sensitive to Amoxicillin/Clavulanic acid
+  Antibiotic = Doxycycline
+  abbrev=DOX
+  Strain appears sensitive to Doxycycline
+  Antibiotic = Ciprofloxacin
+  abbrev=CIP
+  Strain appears sensitive to Ciprofloxacin
+  ARDaP found no deletions or duplications that cause antibiotic resistance
+  
+  no mechanism identified for MEM resistance, looking for intermediate resistance
+  no intermediate resistance found
+  no mechanism identified for CAZ resistance, looking for intermediate resistance
+  no intermediate resistance found
+  no mechanism identified for GEN sensitivity
+  no mechanism identified for IPM resistance, looking for intermediate resistance
+  no intermediate resistance found
+  no mechanism identified for SXT resistance, looking for intermediate resistance
+  no intermediate resistance found
+  no mechanism identified for AMC resistance, looking for intermediate resistance
+  no intermediate resistance found
+  no mechanism identified for DOX resistance, looking for intermediate resistance
+  no intermediate resistance found
+  no mechanism identified for CIP resistance
+  Looking for speciation markers
+
+Command error:
+  cat: IP-0133-9_S3_L001_resfinder_report.txt: No such file or directory
+  awk: cmd. line:1: fatal: cannot open file `GENr.output' for reading: No such file or directory
+  awk: cmd. line:1: fatal: cannot open file `GENi.output' for reading: No such file or directory
+
+Work dir:
+  /home/phemarajata/ARDaP-DSL2/work/02/4e4b85fa064a6f64148e4b54cc59a6
+
+Tip: you can try to figure out what's wrong by changing to the process work dir and showing the script file named `.command.sh`
+Oct-18 23:02:19.889 [TaskFinalizer-4] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=ABRESISTANCE_REPORT (IP-0138-8_S8_L001); work-dir=/home/phemarajata/ARDaP-DSL2/work/c3/6b59172b6dba6d9dcaf7d3012359f9
+  error [nextflow.exception.MissingFileException]: Missing output file(s) `IP-0138-8_S8_L001_AbR_output.final.txt` expected by process `ABRESISTANCE_REPORT (IP-0138-8_S8_L001)`
+Oct-18 23:02:19.892 [TaskFinalizer-1] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=ABRESISTANCE_REPORT (IP-0135-4_S5_L001); work-dir=/home/phemarajata/ARDaP-DSL2/work/15/98473d7dd656dcfe2b94d0bf6eb7f4
+  error [nextflow.exception.MissingFileException]: Missing output file(s) `IP-0135-4_S5_L001_AbR_output.final.txt` expected by process `ABRESISTANCE_REPORT (IP-0135-4_S5_L001)`
+Oct-18 23:02:19.893 [TaskFinalizer-2] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=ABRESISTANCE_REPORT (IP-0136-2_S6_L001); work-dir=/home/phemarajata/ARDaP-DSL2/work/a7/c5901de3ea8442888ed25e95a0e651
+  error [nextflow.exception.MissingFileException]: Missing output file(s) `IP-0136-2_S6_L001_AbR_output.final.txt` expected by process `ABRESISTANCE_REPORT (IP-0136-2_S6_L001)`
+Oct-18 23:02:19.899 [TaskFinalizer-3] INFO  nextflow.Session - Execution cancelled -- Finishing pending tasks before exit
+Oct-18 23:02:19.913 [main] DEBUG nextflow.Session - Session await > all processes finished
+Oct-18 23:02:20.132 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 76; name: ABRESISTANCE_REPORT (IP-0134-7_S4_L001); status: COMPLETED; exit: 0; error: -; workDir: /home/phemarajata/ARDaP-DSL2/work/d5/96b55d8e9ef2e047e82fc61dce3fa7]
+Oct-18 23:02:20.133 [TaskFinalizer-5] DEBUG nextflow.processor.TaskProcessor - Process `ABRESISTANCE_REPORT (IP-0134-7_S4_L001)` is unable to find [UnixPath]: `/home/phemarajata/ARDaP-DSL2/work/d5/96b55d8e9ef2e047e82fc61dce3fa7/IP-0134-7_S4_L001_AbR_output.final.txt` (pattern: `IP-0134-7_S4_L001_AbR_output.final.txt`)
+Oct-18 23:02:20.135 [TaskFinalizer-5] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=ABRESISTANCE_REPORT (IP-0134-7_S4_L001); work-dir=/home/phemarajata/ARDaP-DSL2/work/d5/96b55d8e9ef2e047e82fc61dce3fa7
+  error [nextflow.exception.MissingFileException]: Missing output file(s) `IP-0134-7_S4_L001_AbR_output.final.txt` expected by process `ABRESISTANCE_REPORT (IP-0134-7_S4_L001)`
+Oct-18 23:02:20.137 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 73; name: ABRESISTANCE_REPORT (IP-0132-1_S2_L001); status: COMPLETED; exit: 0; error: -; workDir: /home/phemarajata/ARDaP-DSL2/work/f7/9a895872a310df9e875229c9c8ee78]
+Oct-18 23:02:20.139 [TaskFinalizer-6] DEBUG nextflow.processor.TaskProcessor - Process `ABRESISTANCE_REPORT (IP-0132-1_S2_L001)` is unable to find [UnixPath]: `/home/phemarajata/ARDaP-DSL2/work/f7/9a895872a310df9e875229c9c8ee78/IP-0132-1_S2_L001_AbR_output.final.txt` (pattern: `IP-0132-1_S2_L001_AbR_output.final.txt`)
+Oct-18 23:02:20.140 [TaskFinalizer-6] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=ABRESISTANCE_REPORT (IP-0132-1_S2_L001); work-dir=/home/phemarajata/ARDaP-DSL2/work/f7/9a895872a310df9e875229c9c8ee78
+  error [nextflow.exception.MissingFileException]: Missing output file(s) `IP-0132-1_S2_L001_AbR_output.final.txt` expected by process `ABRESISTANCE_REPORT (IP-0132-1_S2_L001)`
+Oct-18 23:02:20.144 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 79; name: ABRESISTANCE_REPORT (Undetermined_S0_L001); status: COMPLETED; exit: 0; error: -; workDir: /home/phemarajata/ARDaP-DSL2/work/5e/28f6b3d6ea73147fec00fa90a6a3c6]
+Oct-18 23:02:20.146 [TaskFinalizer-7] DEBUG nextflow.processor.TaskProcessor - Process `ABRESISTANCE_REPORT (Undetermined_S0_L001)` is unable to find [UnixPath]: `/home/phemarajata/ARDaP-DSL2/work/5e/28f6b3d6ea73147fec00fa90a6a3c6/Undetermined_S0_L001_AbR_output.final.txt` (pattern: `Undetermined_S0_L001_AbR_output.final.txt`)
+Oct-18 23:02:20.147 [TaskFinalizer-7] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=ABRESISTANCE_REPORT (Undetermined_S0_L001); work-dir=/home/phemarajata/ARDaP-DSL2/work/5e/28f6b3d6ea73147fec00fa90a6a3c6
+  error [nextflow.exception.MissingFileException]: Missing output file(s) `Undetermined_S0_L001_AbR_output.final.txt` expected by process `ABRESISTANCE_REPORT (Undetermined_S0_L001)`
+Oct-18 23:02:20.163 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 82; name: ABRESISTANCE_REPORT (IP-0131-3_S1_L001); status: COMPLETED; exit: 0; error: -; workDir: /home/phemarajata/ARDaP-DSL2/work/88/07b90524c8aaa9e621d7b6b2edee52]
+Oct-18 23:02:20.165 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Oct-18 23:02:20.165 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Oct-18 23:02:20.165 [TaskFinalizer-8] DEBUG nextflow.processor.TaskProcessor - Process `ABRESISTANCE_REPORT (IP-0131-3_S1_L001)` is unable to find [UnixPath]: `/home/phemarajata/ARDaP-DSL2/work/88/07b90524c8aaa9e621d7b6b2edee52/IP-0131-3_S1_L001_AbR_output.final.txt` (pattern: `IP-0131-3_S1_L001_AbR_output.final.txt`)
+Oct-18 23:02:20.167 [TaskFinalizer-8] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=ABRESISTANCE_REPORT (IP-0131-3_S1_L001); work-dir=/home/phemarajata/ARDaP-DSL2/work/88/07b90524c8aaa9e621d7b6b2edee52
+  error [nextflow.exception.MissingFileException]: Missing output file(s) `IP-0131-3_S1_L001_AbR_output.final.txt` expected by process `ABRESISTANCE_REPORT (IP-0131-3_S1_L001)`
+Oct-18 23:02:20.169 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'TaskFinalizer' shutdown completed (hard=false)
+Oct-18 23:02:20.169 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'PublishDir' shutdown completed (hard=false)
+Oct-18 23:02:20.172 [main] INFO  nextflow.Nextflow - Pipeline completed with errors. Please check the log files for details.
+Oct-18 23:02:20.176 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=8; ignoredCount=0; cachedCount=97; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=0ms; failedDuration=4.4s; cachedDuration=10h 14m 3s;loadCpus=0; loadMemory=0; peakRunning=7; peakCpus=14; peakMemory=56 GB; ]
+Oct-18 23:02:20.176 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow completed -- saving trace file
+Oct-18 23:02:20.177 [main] DEBUG nextflow.trace.ReportObserver - Workflow completed -- rendering execution report
+Oct-18 23:02:20.714 [main] DEBUG nextflow.trace.TimelineObserver - Workflow completed -- rendering execution timeline
+Oct-18 23:02:20.926 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Oct-18 23:02:20.941 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+Oct-18 23:02:20.941 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

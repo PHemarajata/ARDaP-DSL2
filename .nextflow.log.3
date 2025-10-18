@@ -1,22 +1,228 @@
-Oct-18 18:09:14.276 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf -profile workstation --fastq '/home/phemarajata/Downloads/Burk_Genome_for_BI_Feb_2025/Fastq_250127/*_{1,2}.fastq.gz' --species Burkholderia_pseudomallei
-Oct-18 18:09:14.321 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.04.8
-Oct-18 18:09:14.342 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/phemarajata/.nextflow/plugins; core-plugins: nf-amazon@2.15.0-patch2,nf-azure@1.16.0-patch1,nf-cloudcache@0.4.3,nf-codecommit@0.2.3,nf-console@1.2.1,nf-google@1.21.1,nf-k8s@1.0.1,nf-tower@1.11.4-patch2,nf-wave@1.12.1
-Oct-18 18:09:14.357 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
-Oct-18 18:09:14.358 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
-Oct-18 18:09:14.360 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
-Oct-18 18:09:14.371 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
-Oct-18 18:09:14.394 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/phemarajata/ARDaP-DSL2/nextflow.config
-Oct-18 18:09:14.396 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/phemarajata/ARDaP-DSL2/nextflow.config
-Oct-18 18:09:14.417 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/phemarajata/.nextflow/secrets/store.json
-Oct-18 18:09:14.420 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@41a6d121] - activable => nextflow.secret.LocalSecretsProvider@41a6d121
-Oct-18 18:09:14.429 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `workstation`
-Oct-18 18:09:15.140 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [standard, dgx, test, conda, workstation, singularity, docker]
-Oct-18 18:09:15.145 [main] WARN  nextflow.config.ConfigBuilder - It appears you have never run this project before -- Option `-resume` is ignored
-Oct-18 18:09:15.176 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=1 by probing script field
-Oct-18 18:09:15.183 [main] DEBUG nextflow.cli.Launcher - Operation aborted
-nextflow.exception.AbortOperationException: Nextflow DSL1 is no longer supported — Update your script to DSL2, or use Nextflow 22.10.x or earlier
-	at nextflow.NextflowMeta.enableDsl(NextflowMeta.groovy:149)
-	at nextflow.cli.CmdRun.launchInfo(CmdRun.groovy:420)
-	at nextflow.cli.CmdRun.run(CmdRun.groovy:336)
+Oct-18 23:08:24.541 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf -profile workstation --fastq '/home/phemarajata/Downloads/Burk_Genome_for_BI_Feb_2025/Fastq_250127/*_R{1,2}*.fastq.gz' --species Burkholderia_pseudomallei --outdir /home/phemarajata/Downloads/Burk_Genome_for_BI_Feb_2025/Fastq_250127/results --database Burkholderia_pseudomallei_k96243 -resume
+Oct-18 23:08:24.650 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.04.8
+Oct-18 23:08:24.673 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/phemarajata/.nextflow/plugins; core-plugins: nf-amazon@2.15.0-patch2,nf-azure@1.16.0-patch1,nf-cloudcache@0.4.3,nf-codecommit@0.2.3,nf-console@1.2.1,nf-google@1.21.1,nf-k8s@1.0.1,nf-tower@1.11.4-patch2,nf-wave@1.12.1
+Oct-18 23:08:24.703 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Oct-18 23:08:24.704 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Oct-18 23:08:24.707 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Oct-18 23:08:24.718 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Oct-18 23:08:24.740 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/phemarajata/ARDaP-DSL2/nextflow.config
+Oct-18 23:08:24.747 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/phemarajata/ARDaP-DSL2/nextflow.config
+Oct-18 23:08:24.779 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/phemarajata/.nextflow/secrets/store.json
+Oct-18 23:08:24.783 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@2234078] - activable => nextflow.secret.LocalSecretsProvider@2234078
+Oct-18 23:08:24.795 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `workstation`
+Oct-18 23:08:25.727 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [standard, dgx, test, conda, workstation, singularity, docker]
+Oct-18 23:08:25.761 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Oct-18 23:08:25.777 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [distraught_poisson] DSL2 - revision: 5510df29dd
+Oct-18 23:08:25.779 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Oct-18 23:08:25.779 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Oct-18 23:08:25.825 [main] DEBUG nextflow.Session - Session UUID: f277df0e-7133-4999-aac1-2308e19176e6
+Oct-18 23:08:25.826 [main] DEBUG nextflow.Session - Run name: distraught_poisson
+Oct-18 23:08:25.826 [main] DEBUG nextflow.Session - Executor pool size: 22
+Oct-18 23:08:25.833 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Oct-18 23:08:25.838 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=66; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Oct-18 23:08:25.859 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 25.04.8 build 5956
+  Created: 06-10-2025 21:19 UTC (07-10-2025 04:19 ICST)
+  System: Linux 6.14.0-33-generic
+  Runtime: Groovy 4.0.26 on OpenJDK 64-Bit Server VM 17.0.15-internal+0-adhoc..src
+  Encoding: UTF-8 (UTF-8)
+  Process: 393248@phemarajata-Stealth-16-MercedesAMG-A1VGG [127.0.1.1]
+  CPUs: 22 - Mem: 62.3 GB (8.1 GB) - Swap: 8 GB (8 GB)
+Oct-18 23:08:25.944 [main] DEBUG nextflow.Session - Work-dir: /home/phemarajata/ARDaP-DSL2/work [ext2/ext3]
+Oct-18 23:08:25.986 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Oct-18 23:08:25.995 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Oct-18 23:08:26.023 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Oct-18 23:08:26.054 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Oct-18 23:08:26.062 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 23; maxThreads: 1000
+Oct-18 23:08:26.144 [main] DEBUG nextflow.Session - Session start
+Oct-18 23:08:26.150 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow started -- trace file: /home/phemarajata/Downloads/Burk_Genome_for_BI_Feb_2025/Fastq_250127/results/pipeline_info/execution_trace.txt
+Oct-18 23:08:26.582 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Oct-18 23:08:26.592 [main] INFO  nextflow.Nextflow - 
+===============================================================================
+                           NF-ARDaP DSL2
+                             v2.4.0
+================================================================================
+
+Optional Parameters:
+
+    --fastq      Input PE read file wildcard (default: *_{1,2}.fastq.gz)
+
+                 Currently this is set to /home/phemarajata/Downloads/Burk_Genome_for_BI_Feb_2025/Fastq_250127/*_R{1,2}*.fastq.gz
+
+    --species    Species specific database for resistance determination
+                 (default: Burkholderia_pseudomallei)
+
+                 Currently you are using Burkholderia_pseudomallei
+
+    --assemblies Optionally include a directory of assembled genomes in the
+                 analysis. Set this parameter to 'true' if you wish to included
+                 assembled genomes and place all assembled genomes in a
+                 subdirectory called 'assemblies'. (default: false)
+
+                 Currently assemblies is set to false
+
+    --notrim     Although not generally recommended to switch off, set to true
+                 if you want to skip the trimmomatic step (default: false).
+                 Currently notrim is set to true
+
+    --mixtures   Optionally perform within species mixtures analysis.
+                 Set this parameter to 'true' if you are dealing with
+                 multiple strains. (default: false)
+
+                 Currently mixtures is set to false
+
+    --size       ARDaP can optionally down-sample your read data to
+                 run through the pipeline quicker. Please set to 0 to skip this step
+                 (default: 1000000)
+
+                 Currently you are using 1000000
+
+                 Currently executor is set to local
+
+    --fast       **Experimental**. Future implementation to only look at regions that
+                 may cause AMR rather than the whole genome. I expect this may impact on the
+                 performance of predicting structural variants.
+
+                 Currently fast is set to true
+
+    --gwas       **Experimental**. If you have a database of GWAS co-ordinates
+                 ARDaP can interrogate SNPs and indels across the entire genome
+                 to identify novel mutations likely contributing to an antibiotic
+                 resistance phenotype. For more information about this feature,
+                 please contact the developers.
+
+                 Currently gwas is set to false
+
+
+==================================================================
+==================================================================
+
+Oct-18 23:08:27.571 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:index` matches labels `index` for process with name INDEX_REFERENCE
+Oct-18 23:08:27.579 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 23:08:27.580 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 23:08:27.584 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Oct-18 23:08:27.589 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=20; memory=56 GB; capacity=4; pollInterval=100ms; dumpInterval=5m
+Oct-18 23:08:27.591 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Oct-18 23:08:27.612 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'INDEX_REFERENCE': maxForks=0; fair=false; array=0
+Oct-18 23:08:27.656 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:trimmomatic` matches labels `trimmomatic` for process with name TRIMMOMATIC
+Oct-18 23:08:27.660 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 23:08:27.660 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 23:08:27.661 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'TRIMMOMATIC': maxForks=0; fair=false; array=0
+Oct-18 23:08:27.671 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:ardap_default` matches labels `ardap_default` for process with name DOWNSAMPLE
+Oct-18 23:08:27.673 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 23:08:27.674 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 23:08:27.675 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'DOWNSAMPLE': maxForks=0; fair=false; array=0
+Oct-18 23:08:27.687 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:alignment` matches labels `alignment` for process with name REFERENCE_ALIGNMENT
+Oct-18 23:08:27.690 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 23:08:27.690 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 23:08:27.691 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'REFERENCE_ALIGNMENT': maxForks=0; fair=false; array=0
+Oct-18 23:08:27.699 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:markduplicates` matches labels `markduplicates` for process with name MARK_DUPLICATES
+Oct-18 23:08:27.701 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 23:08:27.701 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 23:08:27.702 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'MARK_DUPLICATES': maxForks=0; fair=false; array=0
+Oct-18 23:08:27.710 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:gatk_haplo` matches labels `gatk_haplo` for process with name GATK_HAPLOTYPE_CALLER
+Oct-18 23:08:27.713 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 23:08:27.713 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 23:08:27.714 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'GATK_HAPLOTYPE_CALLER': maxForks=0; fair=false; array=0
+Oct-18 23:08:27.722 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:gatk` matches labels `gatk` for process with name GATK_GENOTYPE_GVCFS
+Oct-18 23:08:27.724 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 23:08:27.724 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 23:08:27.725 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'GATK_GENOTYPE_GVCFS': maxForks=0; fair=false; array=0
+Oct-18 23:08:27.733 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:gatk` matches labels `gatk` for process with name VARIANT_FILTER
+Oct-18 23:08:27.736 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 23:08:27.737 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 23:08:27.738 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'VARIANT_FILTER': maxForks=0; fair=false; array=0
+Oct-18 23:08:27.747 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:ardap_default` matches labels `ardap_default` for process with name DELLY
+Oct-18 23:08:27.748 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 23:08:27.749 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 23:08:27.750 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'DELLY': maxForks=0; fair=false; array=0
+Oct-18 23:08:27.757 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:pindel` matches labels `pindel` for process with name PINDEL
+Oct-18 23:08:27.759 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 23:08:27.759 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 23:08:27.760 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'PINDEL': maxForks=0; fair=false; array=0
+Oct-18 23:08:27.768 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:snpeff` matches labels `snpeff` for process with name SNPEFF_ANNOTATION
+Oct-18 23:08:27.770 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 23:08:27.770 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 23:08:27.771 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SNPEFF_ANNOTATION': maxForks=0; fair=false; array=0
+Oct-18 23:08:27.778 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:genomic_queries` matches labels `genomic_queries` for process with name SQL_QUERIES_SNP_INDEL
+Oct-18 23:08:27.780 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 23:08:27.780 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 23:08:27.781 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SQL_QUERIES_SNP_INDEL': maxForks=0; fair=false; array=0
+Oct-18 23:08:27.789 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:genomic_queries` matches labels `genomic_queries` for process with name SQL_QUERIES_DEL_DUP
+Oct-18 23:08:27.791 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-18 23:08:27.791 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-18 23:08:27.792 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SQL_QUERIES_DEL_DUP': maxForks=0; fair=false; array=0
+Oct-18 23:08:27.807 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:report` matches labels `report` for process with name ABRESISTANCE_REPORT
+Oct-18 23:08:27.811 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_57090a156f8df069: /home/phemarajata/ARDaP-DSL2/modules/local/html_report.nf
+  Script_8b038b2a52604d1f: /home/phemarajata/ARDaP-DSL2/modules/local/downsample.nf
+  Script_8c9571d7b05a68f5: /home/phemarajata/ARDaP-DSL2/modules/local/merge_vcf.nf
+  Script_f3587602a519d69c: /home/phemarajata/ARDaP-DSL2/modules/local/sql_queries_snp_indel.nf
+  Script_43eb1a0e87038fb7: /home/phemarajata/ARDaP-DSL2/modules/local/abresistance_report.nf
+  Script_dc91639c96d1b37c: /home/phemarajata/ARDaP-DSL2/modules/local/sql_queries_del_dup.nf
+  Script_c71b359029d82f2b: /home/phemarajata/ARDaP-DSL2/modules/local/trimmomatic.nf
+  Script_5af403be0a3ec29d: /home/phemarajata/ARDaP-DSL2/modules/local/pindel.nf
+  Script_ca25c9a6b054aad4: /home/phemarajata/ARDaP-DSL2/modules/local/read_synthesis.nf
+  Script_072c22c79b2ea761: /home/phemarajata/ARDaP-DSL2/modules/local/gatk_genotypegvcfs.nf
+  Script_eda496b6e7771258: /home/phemarajata/ARDaP-DSL2/modules/local/variant_filter.nf
+  Script_b2f83a38eccdc709: /home/phemarajata/ARDaP-DSL2/modules/local/delly.nf
+  Script_fdfe81f049fdaad4: /home/phemarajata/ARDaP-DSL2/modules/local/index_reference.nf
+  Script_4b7d79dc70eb3e11: /home/phemarajata/ARDaP-DSL2/modules/local/snpeff_annotation.nf
+  Script_bd509285b2fee8c4: /home/phemarajata/ARDaP-DSL2/modules/local/mark_duplicates.nf
+  Script_a115b454acf5bf07: /home/phemarajata/ARDaP-DSL2/modules/local/phylogeny.nf
+  Script_76196d826d3038ec: /home/phemarajata/ARDaP-DSL2/modules/local/snp_matrix.nf
+  Script_c88cc33e455b688c: /home/phemarajata/ARDaP-DSL2/main.nf
+  Script_169373e55c4e2cda: /home/phemarajata/ARDaP-DSL2/modules/local/reference_alignment.nf
+  Script_1f36c9f40069fc08: /home/phemarajata/ARDaP-DSL2/modules/local/gatk_haplotypecaller.nf
+Oct-18 23:08:27.812 [main] DEBUG nextflow.Session - Session aborted -- Cause: Process `ABRESISTANCE_REPORT` declares 3 input channels but 2 were specified
+Oct-18 23:08:27.831 [main] DEBUG nextflow.Session - The following nodes are still active:
+  [operator] ifEmpty
+  [operator] mix
+  [operator] join
+
+Oct-18 23:08:27.836 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Oct-18 23:08:27.837 [Actor Thread 13] ERROR nextflow.Nextflow - 
+            ERROR: Input read files could not be found.
+            Have you included the read files in the current directory and do they have the correct naming?
+            With the parameters specified, ARDaP is looking for reads named /home/phemarajata/Downloads/Burk_Genome_for_BI_Feb_2025/Fastq_250127/*_R{1,2}*.fastq.gz.
+            To fix this error either rename your reads to match this formatting or specify the desired format
+            when initializing ARDaP e.g. --fastq "*_{1,2}_sequence.fastq.gz"
+            
+Oct-18 23:08:27.837 [main] ERROR nextflow.cli.Launcher - Process `ABRESISTANCE_REPORT` declares 3 input channels but 2 were specified
+nextflow.exception.ScriptRuntimeException: Process `ABRESISTANCE_REPORT` declares 3 input channels but 2 were specified
+	at nextflow.script.ProcessDef.run(ProcessDef.groovy:175)
+	at nextflow.script.BindableDef.invoke_a(BindableDef.groovy:51)
+	at nextflow.script.ComponentDef.invoke_o(ComponentDef.groovy:40)
+	at nextflow.script.WorkflowBinding.invokeMethod(WorkflowBinding.groovy:105)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokePogoMethod(InvokerHelper.java:651)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:628)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeOnDelegationObjects(ClosureMetaClass.java:392)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:331)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at Script_c88cc33e455b688c$_runScript_closure2$_closure4.doCall(Script_c88cc33e455b688c:308)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:280)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at groovy.lang.Closure.call(Closure.java:433)
+	at groovy.lang.Closure.call(Closure.java:412)
+	at nextflow.script.WorkflowDef.run0(WorkflowDef.groovy:205)
+	at nextflow.script.WorkflowDef.run(WorkflowDef.groovy:189)
+	at nextflow.script.BindableDef.invoke_a(BindableDef.groovy:51)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.script.BaseScript.run0(BaseScript.groovy:182)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.script.BaseScript.run(BaseScript.groovy:193)
+	at nextflow.script.parser.v1.ScriptLoaderV1.runScript(ScriptLoaderV1.groovy:246)
+	at nextflow.script.parser.v1.ScriptLoaderV1.runScript(ScriptLoaderV1.groovy)
+	at nextflow.script.ScriptRunner.run(ScriptRunner.groovy:246)
+	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:139)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:379)
 	at nextflow.cli.Launcher.run(Launcher.groovy:513)
 	at nextflow.cli.Launcher.main(Launcher.groovy:673)
+Oct-18 23:08:27.839 [Actor Thread 13] DEBUG nextflow.Nextflow - Ignoring exit because execution is already aborted -- message=null
