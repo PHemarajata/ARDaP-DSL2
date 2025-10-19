@@ -1,0 +1,14 @@
+name: ardap-snpeff
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+
+dependencies:
+  # Java 11 specifically for SnpEff compatibility
+  - openjdk=11
+  # SnpEff for variant annotation  
+  - bioconda::snpeff=5.2=hdfd78af_1
+  # Basic utilities
+  - coreutils
+  - findutils

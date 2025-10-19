@@ -19,7 +19,7 @@ dependencies:
   - gatk4>=4.2
   
   # Variant tools
-  - snpeff>=4.3
+  - snpeff=5.2=hdfd78af_1
   - pindel>=0.2.5
   - delly>=0.9
   

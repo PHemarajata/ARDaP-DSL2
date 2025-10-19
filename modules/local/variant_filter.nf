@@ -1,6 +1,7 @@
 process VARIANT_FILTER {
     label 'gatk'
     tag "$id"
+    publishDir "${params.outdir}/Variants/VCFs", mode: 'copy', pattern: "*_filtered_variants.vcf.gz*", overwrite: true
     
     input:
     tuple val(id), path(vcf), path(tbi)

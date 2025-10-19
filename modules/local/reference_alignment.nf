@@ -1,7 +1,8 @@
 process REFERENCE_ALIGNMENT {
     label 'alignment'
     tag "$id"
-    publishDir "./Outputs/Resfinder", mode: 'copy', pattern: "*_resfinder.txt", overwrite: true
+    publishDir "${params.outdir}/Resfinder", mode: 'copy', pattern: "*_resfinder.txt", overwrite: true
+    publishDir "${params.outdir}/bams", mode: 'copy', pattern: "*.bam*", overwrite: true
     
     input:
     path ref_index
